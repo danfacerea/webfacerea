@@ -10,7 +10,7 @@ const ReadBookPage = () => {
 	const hasWindow = typeof window !== "undefined"
 	const offset = 7
 	const maxPage = currentLocale === "en" ? 359 : 350
-	const collapseWidth = 1400 //1280
+	const collapseWidth = 1280
 	const bookViewer = useRef<HTMLDivElement>(null)
 
 	const checkOnePage = useCallback(() => {
