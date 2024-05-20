@@ -10,7 +10,7 @@ const ReadBookPage = () => {
 	const hasWindow = typeof window !== "undefined"
 	const offset = 7
 	const maxPage = currentLocale === "en" ? 359 : 350
-	const collapseWidth = 1280
+	const collapseWidth = 1400 //1280
 	const bookViewer = useRef<HTMLDivElement>(null)
 
 	const checkOnePage = useCallback(() => {
@@ -88,7 +88,7 @@ const ReadBookPage = () => {
 			>
 				<div id="lpage" className={`${fullscreen ? "" : "flex-1"}`}>
 					<img
-						width={900}
+						width={720}
 						height={1024}
 						src={`https://facerea.ro/img${currentLocale}/${page}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
@@ -103,7 +103,7 @@ const ReadBookPage = () => {
 					}`}
 				>
 					<img
-						width={900}
+						width={720}
 						height={1440}
 						src={`https://facerea.ro/img${currentLocale}/${page + 1}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
