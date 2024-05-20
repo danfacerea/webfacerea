@@ -131,8 +131,8 @@ const ReadBookPage = () => {
 							}
 							event.currentTarget.value = ""
 							
-    							
-  }
+    							event.currentTarget.blur(); // Call blur() method on the text box
+  
 						}
 					}}
 				/>
