@@ -1,0 +1,50 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"esnext"
+		],
+		"baseUrl": ".",
+		"allowJs": true,
+		"strict": false,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"outDir": "./dist",
+		"noEmit": true,
+		"module": "esnext",
+		"jsx": "preserve",
+		"moduleResolution": "bundler",
+		"forceConsistentCasingInFileNames": true,
+		"incremental": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"paths": {
+			"@payload-types": [
+				"payload/payload-types.ts"
+			],
+			"@payload-config": [
+				"payload/payload.config.ts"
+			],
+			"@/*": [
+				"src/*"
+			]
+		},
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"strictNullChecks": true
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts"
+	],
+	"exclude": [
+		"node_modules"
+	]
+}
