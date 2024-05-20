@@ -130,6 +130,9 @@ const ReadBookPage = () => {
 								setPage(newPage - (!isOnePage && newPage % 2 === 0 ? 1 : 0) - (value === maxPage ? newPage % 2 : 0))
 							}
 							event.currentTarget.value = ""
+							
+    							event.currentTarget.blur(); // Call blur() method on the text box
+  }
 						}
 					}}
 				/>
