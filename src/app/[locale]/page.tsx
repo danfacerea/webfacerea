@@ -15,7 +15,7 @@ const Page = async () => {
 			</div>
 			<div className="w-full px-8 md:px-4 py-6 bg-gray-300 border-y-2 border-gray-400 flex flex-col md:flex-row place-content-evenly gap-4">
 				<div className="flex justify-center">
-					<img alt="book" className="h-full max-h-96 w-auto" src={`https://facerea.ro/img${currentLocale}/1.jpg`} />
+					<img alt="book" className="h-full max-h-96 w-auto" src={`https://facerea.ro/img${currentLocale}/Coperta.jpg`} />
 				</div>
 				<div className="flex flex-col gap-4 justify-center items-center">
 					<span className="text-4xl font-bold">
