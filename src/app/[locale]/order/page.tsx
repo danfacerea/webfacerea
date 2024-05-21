@@ -15,20 +15,20 @@ const Order = () => {
 
 
 	// Get the popup window and OK button
-const popup = document.getElementById("popup");
-const okBtn = document.getElementById("ok-btn");
+const popup = document.getElementById("popup")
+const okBtn = document.getElementById("ok-btn")
 
 // Get the open popup button
-const openPopupBtn = document.getElementById("open-popup");
+const openPopupBtn = document.getElementById("open-popup")
 
 // Open the popup window when the button is clicked
 openPopupBtn.addEventListener("click", () => {
-  popup.style.display = "block";
-});
+  popup.style.display = "block"
+})
 
 // Close the popup window when the OK button is clicked
 okBtn.addEventListener("click", () => {
-  popup.style.display = "none";
+  popup.style.display = "none"
 });
 
 	return (
