@@ -22,7 +22,7 @@ export default {
 		content: "Ne pare rău, dar pagina pe care o căutați nu există.",
 	},
 	Contact: {
-		title: "Intrați în contact",
+		title: "Contactați-ne",
 		subtitle: "Trimiteți-ne un mesaj rapid și vă vom răspunde",
 		message: "Mesaj",
 		name: "Nume",
