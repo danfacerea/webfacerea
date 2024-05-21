@@ -4,6 +4,14 @@ import { getPayload } from "payload"
 import React from "react"
 import { Post } from "./_components/Post"
 
+import moment from 'moment';
+
+const originalDate = new Date("2022-07-25T14:30:00.000Z");
+const formattedDate = moment(originalDate).format('DD/MM/YYYY');
+
+console.log(formattedDate); // Output: "25/07/2022"
+
+
 const Blog = async () => {
 	const t = await getScopedI18n("Blog")
 	const payload = await getPayload({ config: configPromise })
@@ -13,9 +21,6 @@ const Blog = async () => {
 		<div className="flex flex-col gap-6 max-w-4xl w-full justify-center items-center my-6 px-4 mx-auto">
 			<h1 className="text-5xl font-bold mt-4">Blog</h1>
 
-			<p>
- 			 Published on {{ posts.date.toString().replace(/^(\d{4})-(\d{2})-(\d{2})$/, "$3/$2/$1") }}
-			</p>	
 			
 			{posts.docs.map(post => (
 				<a
