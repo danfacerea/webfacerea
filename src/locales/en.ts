@@ -15,7 +15,7 @@ export default {
 		romanian: "Romania",
 	},
 	Order: {
-		message: "You will be redirected shortly...",
+		message: "Under development - go back...",   //"You will be redirected shortly..."
 	},
 	NotFound: {
 		title: "Page not found",
