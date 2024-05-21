@@ -4,13 +4,6 @@ import { getPayload } from "payload"
 import React from "react"
 import { Post } from "./_components/Post"
 
-import moment from 'moment';
-
-const originalDate = new Date("2022-07-25T14:30:00.000Z");
-const formattedDate = moment(originalDate).format('DD/MM/YYYY');
-
-console.log(formattedDate); // Output: "25/07/2022"
-
 
 const Blog = async () => {
 	const t = await getScopedI18n("Blog")
