@@ -8,14 +8,14 @@ const Blog = async () => {
 	const t = await getScopedI18n("Blog")
 	const payload = await getPayload({ config: configPromise })
 	const posts = await payload.find({ collection: "posts" })
-	//Dan added
+	
 	const date = new Date('2022-07-25T14:30:00.000Z')
 	const formattedDate = payload.date(date, 'dd MMM yyyy')
 	
 	return (
 		<div className="flex flex-col gap-6 max-w-4xl w-full justify-center items-center my-6 px-4 mx-auto">
 			<h1 className="text-5xl font-bold mt-4">Blog</h1>
-			<h2>{formattedDate}</h2>
+			
 			{posts.docs.map(post => (
 				<a
 					key={post.id}
