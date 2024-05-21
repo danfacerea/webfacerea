@@ -14,8 +14,8 @@ const Blog = async () => {
 			<h1 className="text-5xl font-bold mt-4">Blog</h1>
 
 			<p>
-  				Published on {post.date.toLocaleDateString("en-GB", { day: '2-digit', month: '2-digit', year: '4-digit' })}
-			</p>
+ 			 Published on {{ posts.date.toString().replace(/^(\d{4})-(\d{2})-(\d{2})$/, "$3/$2/$1") }}
+			</p>	
 			
 			{posts.docs.map(post => (
 				<a
