@@ -4,24 +4,20 @@ import { useScopedI18n } from "@/locales/client"
 import { redirect } from "next/navigation"
 import { useEffect, useState } from "react"
 
-import React from 'react';
+//import React from "react"
 interface PopupProps {
   message: string;
-  onClose: () => void;
+  onClose: () => void
 }
 
-const Popup: React.FC<PopupProps> = ({ message, onClose }) => {
-  return (
-    <div className="popup-container">
-      <div className="popup">
-        <p>{message}</p>
-        <button onClick={onClose}>OK</button>
-      </div>
-    </div>
-  );
-};
+const Popup: React.FC<PopupProps> = ({ message, onClose }) => (
+  <div className="popup">
+    <p>{message}</p>
+    <button onClick={onClose}>OK</button>
+  </div>
+)
 
-export default Popup;
+export default Popup
 
 
 const Order = () => {
