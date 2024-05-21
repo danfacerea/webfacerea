@@ -115,10 +115,10 @@ const ReadBookPage = () => {
 			</div>
 
 			<div className="flex flex-col order-last md:order-first px-4 pb-4 justify-between content-center gap-2 w-full md:w-max">
-				<button className="px-3 py-2 flex-1 rounded bg-gray-300 hover:bg-gray-400" type="button" onClick={() => prevPage()}>
-					{t("previous")}
+				<button className="px-3 py-2 flex-1 rounded bg-gray-300 hover:bg-gray-400" type="button" onClick={() => nextPage()}>
+					{t("next")}
 				</button>
-
+				
 				<input
 					placeholder={t("jump")}
 					className="px-3 py-1 flex-1 bg-white rounded border-2 border-gray-300 text-center"
@@ -137,9 +137,10 @@ const ReadBookPage = () => {
 					}}
 				/>
 
-				<button className="px-3 py-2 flex-1 rounded bg-gray-300 hover:bg-gray-400" type="button" onClick={() => nextPage()}>
-					{t("next")}
+				<button className="px-3 py-2 flex-1 rounded bg-gray-300 hover:bg-gray-400" type="button" onClick={() => prevPage()}>
+					{t("previous")}
 				</button>
+
 
 				<button
 					className="hidden md:block px-3 py-2 flex-1 rounded bg-gray-300 hover:bg-gray-400"
