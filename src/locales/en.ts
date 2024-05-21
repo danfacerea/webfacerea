@@ -33,8 +33,8 @@ export default {
 		fill: "Please fill out all the fields.",
 	},
 	ReadBook: {
-		previous: "Previous page",
-		next: "Next page",
+		previous: "<- Previous page",
+		next: "Next page ->",
 		fullscreen: "Fullscreen",
 		exitFullscreen: "Exit Fullscreen",
 		jump: "Jump to Page...",
