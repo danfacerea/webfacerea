@@ -4,14 +4,34 @@ import { useScopedI18n } from "@/locales/client"
 import { redirect } from "next/navigation"
 import { useEffect, useState } from "react"
 
+import React from 'react';
+interface PopupProps {
+  message: string;
+  onClose: () => void;
+}
+
+const Popup: React.FC<PopupProps> = ({ message, onClose }) => {
+  return (
+    <div className="popup-container">
+      <div className="popup">
+        <p>{message}</p>
+        <button onClick={onClose}>OK</button>
+      </div>
+    </div>
+  );
+};
+
+export default Popup;
+
+
 const Order = () => {
 	const t = useScopedI18n("Order")
 	const [go, setGo] = useState(false)
 
-	useEffect(() => {
+	//useEffect(() => {
 	//	if (go) return redirect("https://amazon.com/")
-		setTimeout(() => setGo(true), 2000)
-	}, [go])
+	//	setTimeout(() => setGo(true), 2000)
+	//}, [go])
 
 
 
