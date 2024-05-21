@@ -1,8 +1,9 @@
 export default {
 	Home: {
-		title: "CREATIA",
+		title: "CREAȚIA",
 		subtitle: "DE LA GENEZA LA APOCALIPSA",
-		read: "Citeste cartea acum!",
+		subtitle1: "IATĂ, EU FAC TOATE LUCRURILE NOI!",
+		read: "Citește cartea acum!",
 	},
 	Navbar: {
 		icon: "FACEREA",
