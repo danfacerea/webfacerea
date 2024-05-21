@@ -9,20 +9,11 @@ const Blog = async () => {
 	const payload = await getPayload({ config: configPromise })
 	const posts = await payload.find({ collection: "posts" })
 	
-	const date = new Date("2022-07-25T14:30:00.000Z")
-	const formattedDate = payload.date(date, "dd MMM yyyy")
-	
 	return (
 		<div className="flex flex-col gap-6 max-w-4xl w-full justify-center items-center my-6 px-4 mx-auto">
 			<h1 className="text-5xl font-bold mt-4">Blog</h1>
 
-			<p>
-           			Created At: {new Date(post.createdAt).toLocaleDateString("en-US", { day: "2-digit", month: "short", year: "numeric" })}
-          		</p>
-          		<p>
-            			Updated At: {new Date(post.updatedAt).toLocaleDateString("en-US", { day: "2-digit", month: "short", year: "numeric" })}
-          		</p>
-			
+						
 			{posts.docs.map(post => (
 				<a
 					key={post.id}
@@ -37,7 +28,10 @@ const Blog = async () => {
 					</div>
 					<span className="text-blue-600 group-hover:text-blue-500 group-hover:underline">{t("read")} »</span>
 	
-					
+					<p>{post.description}</p>
+     					 <p>
+       					 Published on {moment(post.date).format("DD/MM/YYYY")}
+     					 </p>
 				</a>
 			))}
 		</div>
