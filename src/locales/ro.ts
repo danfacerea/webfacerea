@@ -15,7 +15,7 @@ export default {
 		romanian: "Română",
 	},
 	Order: {
-		message: "Veți fi redirecționat în curând...",
+		message: "În curs de implementare - mergi înapoi...",  //"Veți fi redirecționat în curând..."
 	},
 	NotFound: {
 		title: "Pagina nu a fost găsită",
