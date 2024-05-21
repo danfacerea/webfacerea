@@ -2,7 +2,6 @@ export default {
 	Home: {
 		title: "CREAȚIA",
 		subtitle: "DE LA GENEZA LA APOCALIPSA",
-		subtitle1: "IATĂ, EU FAC TOATE LUCRURILE NOI!",
 		read: "Citește cartea acum!",
 	},
 	Navbar: {
