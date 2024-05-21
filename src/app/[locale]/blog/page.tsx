@@ -29,6 +29,15 @@ const Blog = async () => {
 						<Post post={post} isBlogList />
 					</div>
 					<span className="text-blue-600 group-hover:text-blue-500 group-hover:underline">{t("read")} »</span>
+
+					 <p>
+            					Created At: {new Date(post.createdAt).toLocaleDateString("en-US")} at {new Date(post.createdAt).toLocaleTimeString("en-US")}
+         				 </p>
+          				<p>
+            					Updated At: {new Date(post.updatedAt).toLocaleDateString("en-US")} at {new Date(post.updatedAt).toLocaleTimeString("en-US")}
+          				</p>
+
+					
 				</a>
 			))}
 		</div>
