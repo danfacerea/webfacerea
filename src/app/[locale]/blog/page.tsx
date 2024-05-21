@@ -13,7 +13,10 @@ const Blog = async () => {
 		<div className="flex flex-col gap-6 max-w-4xl w-full justify-center items-center my-6 px-4 mx-auto">
 			<h1 className="text-5xl font-bold mt-4">Blog</h1>
 
-						
+			<p>
+ 			 Published on {post.date.toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "4-digit" })}
+			</p>
+			
 			{posts.docs.map(post => (
 				<a
 					key={post.id}
