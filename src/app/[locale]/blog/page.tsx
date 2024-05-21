@@ -9,8 +9,8 @@ const Blog = async () => {
 	const payload = await getPayload({ config: configPromise })
 	const posts = await payload.find({ collection: "posts" })
 	
-	const date = new Date('2022-07-25T14:30:00.000Z')
-	const formattedDate = payload.date(date, 'dd MMM yyyy')
+	//const date = new Date('2022-07-25T14:30:00.000Z')
+	//const formattedDate = payload.date(date, 'dd MMM yyyy')
 	
 	return (
 		<div className="flex flex-col gap-6 max-w-4xl w-full justify-center items-center my-6 px-4 mx-auto">
