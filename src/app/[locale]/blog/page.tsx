@@ -28,10 +28,7 @@ const Blog = async () => {
 					</div>
 					<span className="text-blue-600 group-hover:text-blue-500 group-hover:underline">{t("read")} »</span>
 	
-					<p>{post.description}</p>
-     					 <p>
-       					 Published on {moment(post.date).format("DD/MM/YYYY")}
-     					 </p>
+				
 				</a>
 			))}
 		</div>
