@@ -8,10 +8,10 @@ const Order = () => {
 	const t = useScopedI18n("Order")
 	const [go, setGo] = useState(false)
 
-	//useEffect(() => {
+	useEffect(() => {
 	//	if (go) return redirect("https://amazon.com/")
-	//	setTimeout(() => setGo(true), 2000)
-	//}, [go])
+		setTimeout(() => setGo(true), 2000)
+	}, [go])
 
 
 
