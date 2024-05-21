@@ -58,7 +58,7 @@ const Posts: CollectionConfig = {
 			},
 			hooks: {
 				beforeChange: [({ value }: FieldHookArgs<Post, string, Post>) => value ?? new Date().toISOString()],   //Dan modified date format  ('en-US', { day: '2-digit', month: '2-digit', year: '4-digit' })
-				afterRead: [({ value }: FieldHookArgs<Post, string, Post>) => new Date(value ?? new Date().getTime()).toLocaleDateString()],
+				afterRead: [({ value }: FieldHookArgs<Post, string, Post>) => new Date(value ?? new Date().getTime()).toLocaleDateString("en-GB")],
 			},
 		},
 		{
