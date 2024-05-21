@@ -22,4 +22,4 @@ const Order = () => {
 		</div>
 	)
 }
-//export default Order
+export default Order
