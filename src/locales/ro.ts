@@ -33,8 +33,8 @@ export default {
 		fill: "Vă rugăm să completați toate câmpurile.",
 	},
 	ReadBook: {
-		previous: "Pagina anterioară",
-		next: "Pagina următoare",
+		previous: "<- Pagina anterioară",
+		next: "Pagina următoare ->",
 		fullscreen: "Ecran complet",
 		exitFullscreen: "Ieșiți din ecranul complet",
 		jump: "Salt la pagină...",
