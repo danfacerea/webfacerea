@@ -22,7 +22,7 @@ return { width, height };
 */
 
 	const checkOnePage = useCallback(() => {
-		const width = hasWindow ? window.innerWidth *1.4 : 0
+		const width = hasWindow ? window.innerWidth : 0
 		return width < collapseWidth
 	}, [hasWindow])
 
@@ -96,7 +96,7 @@ return { width, height };
 			>
 				<div id="lpage" className={`${fullscreen ? "" : "flex-1"}`}>
 					<img
-						//width={720}
+						width={720}
 						height={1024}
 						src={`https://facerea.ro/img${currentLocale}/${page}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
@@ -111,7 +111,7 @@ return { width, height };
 					}`}
 				>
 					<img
-						//width={720}
+						width={720}
 						height={1440}
 						src={`https://facerea.ro/img${currentLocale}/${page + 1}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
@@ -139,7 +139,7 @@ return { width, height };
 							}
 							event.currentTarget.value = ""
 							
-    							event.currentTarget.blur(); // Call blur() method on the text box
+    							event.currentTarget.blur(); // Dan  Call blur() method on the text box
   
 						}
 					}}
