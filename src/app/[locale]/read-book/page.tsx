@@ -3,7 +3,6 @@
 
 import { useCurrentLocale, useScopedI18n } from "@/locales/client"
 import { useCallback, useEffect, useRef, useState } from "react"
-import "./styles.css" // Make sure to import the CSS file
 
 const ReadBookPage = () => {
 	const t = useScopedI18n("ReadBook")
@@ -83,23 +82,32 @@ const ReadBookPage = () => {
 
 	return (
 		<div className="flex flex-col md:flex-row gap-2 justify-center items-center">
-			<div className="book-container" ref={bookViewer}>
-				<div id="lpage">
+			<div
+				className="flex flex-row items-center justify-center"
+				ref={bookViewer}
+			>
+				<div id="lpage" className={`${fullscreen ? "" : "flex-1"}`}>
 					<img
-						className="enlarged-image" // Apply the CSS class
+						width={720 * 1.2} // 20% wider
+						height={1024}
 						src={`https://facerea.ro/img${currentLocale}/${page}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
-						className={`max-h-bookMobile md:max-h-book ${loadedL ? "" : "animate-pulse-fast"}`}
+						className={`max-h-bookMobile md:max-h-book w-auto aspect-auto ${loadedL ? "" : "animate-pulse-fast"}`}
 						onLoad={() => setLoadedL(true)}
 						onError={() => setLoadedL(true)}
 					/>
 				</div>
-				<div id="rpage" className={`${page === maxPage + offset && maxPage + offset % 2 === 1 ? "hidden" : "hidden xl:block"}`}>
+				<div id="rpage"
+					className={`${fullscreen ? "" : "flex-1"} ${
+						page === maxPage + offset && maxPage + offset % 2 === 1 ? "hidden" : "hidden xl:block"
+					}`}
+				>
 					<img
-						className="enlarged-image" // Apply the CSS class
+						width={720 * 1.2} // 20% wider
+						height={1440}
 						src={`https://facerea.ro/img${currentLocale}/${page + 1}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
-						className={`max-h-bookMobile md:max-h-book ${loadedR ? "" : "animate-pulse-fast"}`}
+						className={`max-h-bookMobile md:max-h-book w-auto aspect-auto ${loadedR ? "" : "animate-pulse-fast"}`}
 						onLoad={() => setLoadedR(true)}
 						onError={() => setLoadedR(true)}
 					/>
