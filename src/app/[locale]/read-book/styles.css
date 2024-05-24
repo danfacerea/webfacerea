@@ -1,10 +1,1 @@
 /* styles.css or a relevant CSS file */
-.enlarged-image {
-  width: 60%; /* Increase the width to 60% for each image */
-}
-.book-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2%; /* Small gap between images */
-}
