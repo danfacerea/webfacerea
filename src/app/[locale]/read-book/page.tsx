@@ -13,7 +13,7 @@ const ReadBookPage = () => {
 	const collapseWidth = 1280
 	const bookViewer = useRef<HTMLDivElement>(null)
 
- const getWindowDimensions = useCallback(() => {
+ const checkOnePage  = useCallback(() => {
 const width = hasWindow ? window.innerWidth : null;
  const height = hasWindow ? window.innerHeight : null;
 return { width, height };
