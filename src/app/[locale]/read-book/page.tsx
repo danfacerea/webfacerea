@@ -22,7 +22,7 @@ return { width, height };
 */
 
 	const checkOnePage = useCallback(() => {
-		const width = hasWindow ? window.innerWidth : 0
+		const width = hasWindow ? window.innerWidth *1.4 : 0
 		return width < collapseWidth
 	}, [hasWindow])
 
