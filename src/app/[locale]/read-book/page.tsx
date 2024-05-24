@@ -18,10 +18,7 @@ const ReadBookPage = () => {
 const ReadBookPage = () => {
   const [body, setBody] = useState(null);
 
-  useEffect(() => {
-    const bodyElement = document.querySelector('body');
-    setBody(bodyElement);
-  }, []);
+  
 
 const body = document.querySelector('body');
 
