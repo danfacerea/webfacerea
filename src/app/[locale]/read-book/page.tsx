@@ -10,13 +10,29 @@ const ReadBookPage = () => {
 	const hasWindow = typeof window !== "undefined"
 	const offset = 7
 	const maxPage = currentLocale === "en" ? 359 : 350
-	const collapseWidth = 1480 //1280
+	const collapseWidth = 1280
 	const bookViewer = useRef<HTMLDivElement>(null)
 
 
+
+const ReadBookPage = () => {
+  const [body, setBody] = useState(null);
+
+  useEffect(() => {
+    const bodyElement = document.querySelector('body');
+    setBody(bodyElement);
+  }, []);
+
+const body = document.querySelector('body');
+
+  // Add the following styles to the body
+  useEffect(() => {
+    body.style.width = `${window.innerWidth * 1.2}px`; // Increase the width by 20%
+    body.style.maxWidth = 'none'; // Remove any existing max-width
+  }, [body]);
   
 	const checkOnePage = useCallback(() => {
-		const width = hasWindow ? window.innerWidth *1.4 : 0
+		const width = hasWindow ? window.innerWidth : 0
 		return width < collapseWidth
 	}, [hasWindow])
 
