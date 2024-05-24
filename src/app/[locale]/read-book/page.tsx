@@ -13,18 +13,19 @@ const ReadBookPage = () => {
 	const collapseWidth = 1280
 	const bookViewer = useRef<HTMLDivElement>(null)
 
+/*	
  const checkOnePage  = useCallback(() => {
 const width = hasWindow ? window.innerWidth : null;
  const height = hasWindow ? window.innerHeight : null;
 return { width, height };
   }, [hasWindow]);
+*/
 
-/*
 	const checkOnePage = useCallback(() => {
 		const width = hasWindow ? window.innerWidth : 0
 		return width < collapseWidth
 	}, [hasWindow])
-*/
+
 	const [page, setPage] = useState(1)
 	const [loadedL, setLoadedL] = useState(true)
 	const [loadedR, setLoadedR] = useState(true)
@@ -95,7 +96,7 @@ return { width, height };
 			>
 				<div id="lpage" className={`${fullscreen ? "" : "flex-1"}`}>
 					<img
-						width={720 *1.4}
+						//width={720}
 						height={1024}
 						src={`https://facerea.ro/img${currentLocale}/${page}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
@@ -110,7 +111,7 @@ return { width, height };
 					}`}
 				>
 					<img
-						width={720 * 1.4}
+						//width={720}
 						height={1440}
 						src={`https://facerea.ro/img${currentLocale}/${page + 1}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
