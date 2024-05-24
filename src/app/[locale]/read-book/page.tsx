@@ -88,7 +88,7 @@ const ReadBookPage = () => {
 			>
 				<div id="lpage" className={`${fullscreen ? "" : "flex-1"}`}>
 					<img
-						style={{ width: '120%' }} // 20% wider
+						width={720 * 1.4}
 						height={1024}
 						src={`https://facerea.ro/img${currentLocale}/${page}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
@@ -103,7 +103,7 @@ const ReadBookPage = () => {
 					}`}
 				>
 					<img
-						style={{ width: '120%' }} // 20% wider
+						width={720 * 1.4}
 						height={1440}
 						src={`https://facerea.ro/img${currentLocale}/${page + 1}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
