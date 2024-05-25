@@ -115,7 +115,7 @@ return { width, height };
 						height={1440}
 						src={`https://facerea.ro/img${currentLocale}/${page + 1}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
-						className={`max-h-bookMobile md:max-h-book w-auto aspect-auto ${loadedR ? "" : "animate-pulse-fast"}`}
+						className={`max-h-bookMobile md:max-h-book w-120% aspect-auto ${loadedR ? "" : "animate-pulse-fast"}`}
 						onLoad={() => setLoadedR(true)}
 						onError={() => setLoadedR(true)}
 					/>
