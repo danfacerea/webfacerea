@@ -100,7 +100,7 @@ return { width, height };
 						height={1024}
 						src={`https://facerea.ro/img${currentLocale}/${page}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
-						className={`max-h-bookMobile md:max-h-book w-auto aspect-auto ${loadedL ? "" : "animate-pulse-fast"}`}
+						className={`max-h-bookMobile md:max-h-book w-140% aspect-1.2 ${loadedL ? "" : "animate-pulse-fast"}`}
 						onLoad={() => setLoadedL(true)}
 						onError={() => setLoadedL(true)}
 					/>
@@ -115,7 +115,7 @@ return { width, height };
 						height={1440}
 						src={`https://facerea.ro/img${currentLocale}/${page + 1}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
-						className={`max-h-bookMobile md:max-h-book w-120% aspect-auto ${loadedR ? "" : "animate-pulse-fast"}`}
+						className={`max-h-bookMobile md:max-h-book w-140% aspect-1.2 ${loadedR ? "" : "animate-pulse-fast"}`}
 						onLoad={() => setLoadedR(true)}
 						onError={() => setLoadedR(true)}
 					/>
