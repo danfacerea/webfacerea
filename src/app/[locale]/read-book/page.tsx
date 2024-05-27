@@ -56,37 +56,8 @@ const [touchStartX, setTouchStartX] = useState(0) //Dan
 		[isOnePage, maxPage, page],
 	)
 
-	useEffect(() => {
-		const handleKeyDown = (event: WindowEventMap["keydown"]) => {
-			if (event.target instanceof HTMLInputElement) return
-			if (event.key === "ArrowLeft") prevPage()
-			else if (event.key === "ArrowRight") nextPage()
-			else if (event.key === "Escape" && document.fullscreenElement) {
-				setFullscreen(false)
-				document.exitFullscreen()
-			}
-		}
 
-		window.addEventListener("keydown", handleKeyDown)
-		return () => window.removeEventListener("keydown", handleKeyDown)
-	}, [nextPage, prevPage])
 
-	useEffect(() => {
-		if (!hasWindow) return
-		const handleResize = () => {
-			const onePage = checkOnePage()
-			setOnePage(onePage)
-			if (page % 2 === 0 && page > 1 && !onePage) setPage(page - 1)
-		}
-		window.addEventListener("resize", handleResize)
-		return () => window.removeEventListener("resize", handleResize)
-	}, [checkOnePage, hasWindow, isOnePage, page])
-
-	const goFullscreen = () => {
-		if (!hasWindow) return
-		setFullscreen(true)
-		bookViewer.current?.requestFullscreen()
-	}
 //Dan
 
 	const handleTouchStart = (e: TouchEvent) => {
@@ -119,6 +90,44 @@ const [touchStartX, setTouchStartX] = useState(0) //Dan
     }
   }, [prevPage, nextPage])
 //Dan END
+
+
+
+
+
+	
+
+	useEffect(() => {
+		const handleKeyDown = (event: WindowEventMap["keydown"]) => {
+			if (event.target instanceof HTMLInputElement) return
+			if (event.key === "ArrowLeft") prevPage()
+			else if (event.key === "ArrowRight") nextPage()
+			else if (event.key === "Escape" && document.fullscreenElement) {
+				setFullscreen(false)
+				document.exitFullscreen()
+			}
+		}
+
+		window.addEventListener("keydown", handleKeyDown)
+		return () => window.removeEventListener("keydown", handleKeyDown)
+	}, [nextPage, prevPage])
+
+	useEffect(() => {
+		if (!hasWindow) return
+		const handleResize = () => {
+			const onePage = checkOnePage()
+			setOnePage(onePage)
+			if (page % 2 === 0 && page > 1 && !onePage) setPage(page - 1)
+		}
+		window.addEventListener("resize", handleResize)
+		return () => window.removeEventListener("resize", handleResize)
+	}, [checkOnePage, hasWindow, isOnePage, page])
+
+	const goFullscreen = () => {
+		if (!hasWindow) return
+		setFullscreen(true)
+		bookViewer.current?.requestFullscreen()
+	}
 
 	return (
 		<div className="flex flex-col md:flex-row gap-2 justify-center items-center">
