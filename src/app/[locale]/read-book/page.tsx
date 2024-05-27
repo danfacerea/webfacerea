@@ -88,19 +88,37 @@ return { width, height };
 		bookViewer.current?.requestFullscreen()
 	}
 
+	const handleTouchStart = (e: TouchEvent) => {
+		setTouchStartX(e.touches[0].clientX)
+	}
+//Dan
+	const handleTouchMove = (e: TouchEvent) => {
+		if (touchStartX === 0) return
+		const touchEndX = e.touches[0].clientX
+		const touchDiff = touchEndX - touchStartX
+
+		if (touchDiff > 50) {
+			prevPage()
+			setTouchStartX(0)
+		} else if (touchDiff < -50) {
+			nextPage()
+			setTouchStartX(0)
+		}
+	}
+
 	useEffect(() => {
-    const viewer = bookViewer.current
-    if (!viewer) return
+		const viewer = bookViewer.current
+		if (!viewer) return
 
-    viewer.addEventListener("touchstart", handleTouchStart)
-    viewer.addEventListener("touchmove", handleTouchMove)
+		viewer.addEventListener("touchstart", handleTouchStart)
+		viewer.addEventListener("touchmove", handleTouchMove)
 
-    return () => {
-      viewer.removeEventListener("touchstart", handleTouchStart)
-      viewer.removeEventListener("touchmove", handleTouchMove)
-    }
-  }, [prevPage, nextPage])
-
+		return () => {
+			viewer.removeEventListener("touchstart", handleTouchStart)
+			viewer.removeEventListener("touchmove", handleTouchMove)
+		}
+	}, [prevPage, nextPage])
+//Dan END
 
 	return (
 		<div className="flex flex-col md:flex-row gap-2 justify-center items-center">
