@@ -90,7 +90,7 @@ return { width, height };
       viewer.removeEventListener("touchstart", handleTouchStart)
       viewer.removeEventListener("touchmove", handleTouchMove)
     }
-  }, [prevPage, nextPage])
+  }, [handleTouchStart, handleTouchMove])
 //Dan END
 
 
