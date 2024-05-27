@@ -96,7 +96,7 @@ return { width, height };
 			>
 				<div id="lpage" className={`${fullscreen ? "" : "flex-1"}`}>
 					<img
-						width={720 * 1.3} //DAN multiply with 1.3
+						width={720 * 1.2} //DAN multiply with 1.3
 						height={1024}
 						src={`https://facerea.ro/img${currentLocale}/${page}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
@@ -111,7 +111,7 @@ return { width, height };
 					}`}
 				>
 					<img
-						width={720 *1.3} //Dan
+						width={720 *1.2} //Dan
 						height={1440}
 						src={`https://facerea.ro/img${currentLocale}/${page + 1}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
