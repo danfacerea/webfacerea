@@ -92,6 +92,19 @@ const [touchStartX, setTouchStartX] = useState(0) //Dan
 	const handleTouchStart = (e: TouchEvent) => {
 		setTouchStartX(e.touches[0].clientX)
 	}
+	const handleTouchMove = (e: TouchEvent) => {
+		if (touchStartX === 0) return
+		const touchEndX = e.touches[0].clientX
+		const touchDiff = touchEndX - touchStartX
+
+		if (touchDiff > 50) {
+			prevPage()
+			setTouchStartX(0)
+		} else if (touchDiff < -50) {
+			nextPage()
+			setTouchStartX(0)
+		}
+	}
 	
     useEffect(() => {
     const viewer = bookViewer.current
