@@ -31,7 +31,7 @@ return { width, height };
 	const [loadedR, setLoadedR] = useState(true)
 	const [fullscreen, setFullscreen] = useState(false)
 	const [isOnePage, setOnePage] = useState(checkOnePage())
-const [touchStartX, setTouchStartX] = useState<number | null>(null) //Dan
+const [touchStartX, setTouchStartX] = useState(0) //Dan
 	const prevPage = useCallback(
 		() => {
 			if (page > 1 + (isOnePage ? 0 : 1)) {
