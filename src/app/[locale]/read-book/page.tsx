@@ -70,10 +70,10 @@ return { width, height };
 		const touchEndX = e.touches[0].clientX
 		const touchDiff = touchEndX - touchStartX
 
-		if (touchDiff > 50) {
+		if (touchDiff > 100) {
 			prevPage()
 			setTouchStartX(0)
-		} else if (touchDiff < -50) {
+		} else if (touchDiff < -100) {
 			nextPage()
 			setTouchStartX(0)
 		}
