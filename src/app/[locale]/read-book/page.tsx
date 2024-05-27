@@ -88,6 +88,20 @@ return { width, height };
 		bookViewer.current?.requestFullscreen()
 	}
 
+	useEffect(() => {
+    const viewer = bookViewer.current
+    if (!viewer) return
+
+    viewer.addEventListener("touchstart", handleTouchStart)
+    viewer.addEventListener("touchmove", handleTouchMove)
+
+    return () => {
+      viewer.removeEventListener("touchstart", handleTouchStart)
+      viewer.removeEventListener("touchmove", handleTouchMove)
+    }
+  }, [prevPage, nextPage])
+
+
 	return (
 		<div className="flex flex-col md:flex-row gap-2 justify-center items-center">
 			<div
