@@ -88,7 +88,12 @@ const [touchStartX, setTouchStartX] = useState(0) //Dan
 		bookViewer.current?.requestFullscreen()
 	}
 //Dan
-	useEffect(() => {
+
+	const handleTouchStart = (e: TouchEvent) => {
+		setTouchStartX(e.touches[0].clientX)
+	}
+	
+    useEffect(() => {
     const viewer = bookViewer.current
     if (!viewer) return
 
