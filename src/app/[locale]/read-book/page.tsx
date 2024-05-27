@@ -31,7 +31,7 @@ return { width, height };
 	const [loadedR, setLoadedR] = useState(true)
 	const [fullscreen, setFullscreen] = useState(false)
 	const [isOnePage, setOnePage] = useState(checkOnePage())
-
+const [touchStartX, setTouchStartX] = useState<number | null>(null) //Dan
 	const prevPage = useCallback(
 		() => {
 			if (page > 1 + (isOnePage ? 0 : 1)) {
@@ -87,11 +87,11 @@ return { width, height };
 		setFullscreen(true)
 		bookViewer.current?.requestFullscreen()
 	}
-
+//Dan
 	const handleTouchStart = (e: TouchEvent) => {
 		setTouchStartX(e.touches[0].clientX)
 	}
-//Dan
+
 	const handleTouchMove = (e: TouchEvent) => {
 		if (touchStartX === 0) return
 		const touchEndX = e.touches[0].clientX
