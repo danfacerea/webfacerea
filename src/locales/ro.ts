@@ -2,7 +2,7 @@ export default {
 	Home: {
 		title: "CREAȚIA",
 		subtitle: "DE LA GENEZA LA APOCALIPSA",
-		read: "Citește cartea acum!",
+		read: "Citește cartea acum",
 	},
 	Navbar: {
 		icon: "FACEREA",
