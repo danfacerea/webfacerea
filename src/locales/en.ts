@@ -2,7 +2,7 @@ export default {
 	Home: {
 		title: "THE CREATION",
 		subtitle: "FROM GENESIS TO REVELATION",
-		read: "Read the book now!",
+		read: "Read the book now",
 	},
 	Navbar: {
 		icon: "THE CREATION",
