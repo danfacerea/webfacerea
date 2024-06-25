@@ -25,8 +25,9 @@ export interface Config {
  */
 export interface Post {
   id: string;
-  title: string;
-  content: {
+  titleEnglish: string;
+  titleRomanian: string;
+  contentEnglish: {
     root: {
       type: string;
       children: {
@@ -41,7 +42,23 @@ export interface Post {
     };
     [k: string]: unknown;
   };
-  content_html?: string | null;
+  htmlEnglish?: string | null;
+  contentRomanian: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  htmlRomanian?: string | null;
   publishedDate?: string | null;
   slug?: string | null;
   updatedAt: string;
