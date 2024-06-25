@@ -25,9 +25,8 @@ export interface Config {
  */
 export interface Post {
   id: string;
-  titleEnglish: string;
-  titleRomanian: string;
-  contentEnglish: {
+  title: string;
+  content: {
     root: {
       type: string;
       children: {
@@ -42,23 +41,7 @@ export interface Post {
     };
     [k: string]: unknown;
   };
-  htmlEnglish?: string | null;
-  contentRomanian: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  htmlRomanian?: string | null;
+  content_html?: string | null;
   publishedDate?: string | null;
   slug?: string | null;
   updatedAt: string;
@@ -120,4 +103,3 @@ export interface PayloadMigration {
 declare module 'payload' {
   export interface GeneratedTypes extends Config {}
 }
-
