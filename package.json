@@ -9,9 +9,6 @@
 		"serve": "next build && next start",
 		"types": "cross-env PAYLOAD_CONFIG_PATH=payload/payload.config.ts payload generate:types"
 	},
-	"engines": {
-	  	"node": ">=18.20.2"
-	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.19",
 		"@payloadcms/db-mongodb": "3.0.0-beta.29",
