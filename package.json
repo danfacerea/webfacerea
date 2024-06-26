@@ -13,7 +13,7 @@
 		"@headlessui/react": "^1.7.19",
 		"@payloadcms/db-mongodb": "1.5.2",
 		"@payloadcms/next": "3.0.0-beta.29",
-		"@payloadcms/richtext-lexical": "0.11.1",
+		"@payloadcms/richtext-lexical": "3.0.0-beta.29",
 		"@payloadcms/richtext-slate": "1.5.2",
 		"@payloadcms/translations": "3.0.0-beta.29",
 		"@payloadcms/ui": "3.0.0-beta.29",
