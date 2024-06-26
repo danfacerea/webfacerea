@@ -8,6 +8,8 @@ if (!secret) {
 	throw new Error("No PAYLOAD_SECRET provided")
 }
 
+
+
 export default buildConfig({
 	collections: [
 		Posts,
@@ -16,6 +18,7 @@ export default buildConfig({
 	editor: lexicalEditor({}),
 	secret,
 	typescript: {
+    		declare: false,
 		outputFile: "./payload/payload-types.ts",
 	},
 	
