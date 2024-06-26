@@ -18,7 +18,7 @@ export default buildConfig({
 	editor: lexicalEditor({}),
 	secret,
 	typescript: {
-    		declare: false,
+    		outputFile: "./payload/payload-types.ts",
 	},
 	
 })
