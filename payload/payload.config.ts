@@ -19,7 +19,6 @@ export default buildConfig({
 	secret,
 	typescript: {
     		declare: false,
-		outputFile: "./payload/payload-types.ts",
 	},
 	
 })
