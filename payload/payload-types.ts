@@ -116,8 +116,3 @@ export interface PayloadMigration {
   createdAt: string;
 }
 
-
-declare module 'payload' {
-  export interface GeneratedTypes extends Config {}
-}
-
