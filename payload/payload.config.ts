@@ -18,4 +18,9 @@ export default buildConfig({
 	typescript: {
 		outputFile: "./payload/payload-types.ts",
 	},
+
+typescript: {
+    declare: false, // defaults to true if not set
+  },
+	
 })
