@@ -117,8 +117,8 @@ export interface PayloadMigration {
 }
 
 
-/**
-*declare module 'payload' {
-*export interface GeneratedTypes extends Config {}
+
+declare module 'payload' {
+export interface GeneratedTypes extends Config {}
 }
-*/
+
