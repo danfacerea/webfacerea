@@ -119,6 +119,6 @@ export interface PayloadMigration {
 
 
 declare module 'payload' {
-export interface LocalGeneratedTypes extends Config {}
+export interface GeneratedTypes extends Config {}
 }
 
