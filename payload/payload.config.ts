@@ -4,11 +4,11 @@ import { buildConfig } from "payload/config"
 import Posts from "./collections/Posts"
 
 import { Config } from './payload-types'
-/*
+
 declare module 'payload' {
-  export interface GeneratedTypes extends Config {}
+  export interface LocalGeneratedTypes extends Config {}
 }
-*/
+
 const secret = process.env.PAYLOAD_SECRET
 if (!secret) {
 	throw new Error("No PAYLOAD_SECRET provided")
