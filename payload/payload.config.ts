@@ -3,18 +3,10 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical"
 import { buildConfig } from "payload/config"
 import Posts from "./collections/Posts"
 
-import { Config } from './payload-types'
-
-declare module 'payload' {
-  export interface GeneratedTypes extends Config {}
-}
-
 const secret = process.env.PAYLOAD_SECRET
 if (!secret) {
 	throw new Error("No PAYLOAD_SECRET provided")
 }
-
-
 
 export default buildConfig({
 	collections: [
@@ -24,9 +16,6 @@ export default buildConfig({
 	editor: lexicalEditor({}),
 	secret,
 	typescript: {
-   		declare: false,
+		outputFile: "./payload/payload-types.ts",
 	},
-	
 })
-
-
