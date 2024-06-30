@@ -6,8 +6,6 @@ import { I18nProviderClient } from "@/locales/client"
 import { Lora } from "next/font/google"
 import NavBar from "@/app/_components/NavBar"
 
-
-
 const font = Lora({ subsets: ["latin"] })
 
 const Layout = ({ children, params }: { children: React.ReactNode; params: { locale: Locale } }) => {
