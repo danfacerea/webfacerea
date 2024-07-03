@@ -8,6 +8,7 @@ import NavBar from "@/app/_components/NavBar"
 import { useEffect } from "react"
 import ReactGA from "react-ga"
 
+
 const font = Lora({ subsets: ["latin"] })
 const TRACKING_ID = "G-YRVLSBHNZ5" // Replace with your tracking ID
 
