@@ -10,7 +10,9 @@ import ReactGA from "react-ga"
 
 
 const font = Lora({ subsets: ["latin"] })
-const TRACKING_ID = "G-YRVLSBHNZ5" // Replace with your tracking ID
+//const TRACKING_ID = "G-YRVLSBHNZ5" // Replace with your tracking ID
+const TRACKING_ID = "G-79F3TZNR11" // Replace with your tracking ID
+
 
 const Layout = ({ children, params }: { children: React.ReactNode; params: { locale: Locale } }) => {
 	useEffect(() => {
