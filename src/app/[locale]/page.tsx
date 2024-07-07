@@ -1,12 +1,12 @@
 /* eslin/* eslint-disable @next/next/no-img-element */
-import bannerEn from "@/assets/banner_en.jpg";
-import bannerRo from "@/assets/banner_ro.jpg";
+import bannerEn from "@/assets/banner_en.jpg"
+import bannerRo from "@/assets/banner_ro.jpg"
 import { getCurrentLocale, getScopedI18n } from "@/locales/server";
-import Link from "next/link";
+import Link from "next/link"
 
 const Page = async () => {
-	const currentLocale = getCurrentLocale();
-	const t = await getScopedI18n("Home");
+	const currentLocale = getCurrentLocale()
+	const t = await getScopedI18n("Home")
 
 	return (
 		<div className="flex flex-col">
@@ -24,17 +24,14 @@ const Page = async () => {
 					<span className="text-2xl font-medium">
 						{t("subtitle")}
 					</span>
-					
-					
-					<div className="w-full flex justify-center p-16">
-						<Link href="/read-book" className="text-2xl rounded-2xl p-5 border-2 border-slate-400 bg-slate-300 hover:bg-slate-200">
+					{/* Move the Read Book button here */}
+					<Link href="/read-book" className="text-2xl rounded-2xl p-5 border-2 border-slate-400 bg-slate-300 hover:bg-slate-200 mt-4">
 						{t("read")}
-						</Link>
-					</div>
+					</Link>
 				</div>
 			</div>
 		</div>
 	);
-};
+}
 
-export default Page;
+export default Page
