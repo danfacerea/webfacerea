@@ -11,7 +11,7 @@ const Page = async () => {
 	return (
 		<div className="flex flex-col">
 			<div className="w-full">
-				<img alt="Banner" className="w-full height: '100px" src={currentLocale === "en" ? bannerEn.src : bannerRo.src} />
+				<img alt="Banner" className="w-full h-auto" src={currentLocale === "en" ? bannerEn.src : bannerRo.src} />
 			</div>
 			<div className="w-full px-8 md:px-4 py-6 bg-gray-300 border-y-2 border-gray-400 flex flex-col md:flex-row place-content-evenly gap-4">
 				<div className="flex justify-center">
@@ -26,7 +26,7 @@ const Page = async () => {
 					</span>
 				</div>
 			</div>
-			<div className="w-full flex justify-center p-16">
+			<div className="w-full flex justify-top p-16">
 				<Link href="/read-book" className="text-2xl rounded-2xl p-5 border-2 border-slate-400 bg-slate-300 hover:bg-slate-200">
 					{t("read")}
 				</Link>
