@@ -25,15 +25,17 @@ const Page = async () => {
             src={`https://facerea.ro/img${currentLocale}/Coperta.jpg`}
           />
         </div>
-        <div className="flex flex-col gap-4 justify-center items-center">
-          <span className="text-4xl font-bold">{t("title")}</span>
-          <span className="text-2xl font-medium">{t("subtitle")}</span>
-          <Link
-            href="/read-book"
-            className="text-2xl rounded-2xl p-5 border-2 border-slate-400 bg-slate-300 hover:bg-slate-200"
-          >
-            {t("read")}
-          </Link>
+        <div className="flex flex-col gap-4 justify-center items-center md:items-start md:justify-center">
+          <span className="text-4xl font-bold text-center md:text-left">{t("title")}</span>
+          <span className="text-2xl font-medium text-center md:text-left">{t("subtitle")}</span>
+          <div className="mt-4">
+            <Link
+              href="/read-book"
+              className="text-2xl rounded-2xl p-5 border-2 border-slate-400 bg-slate-300 hover:bg-slate-200"
+            >
+              {t("read")}
+            </Link>
+          </div>
         </div>
       </div>
     </div>
