@@ -24,10 +24,13 @@ const Page = async () => {
 					<span className="text-2xl font-medium">
 						{t("subtitle")}
 					</span>
-					{/* Move the Read Book button here */}
-					<Link href="/read-book" className="text-2xl rounded-2xl p-5 border-2 border-slate-400 bg-slate-300 hover:bg-slate-200 mt-4">
+					
+					
+					<div className="w-full flex justify-center p-16">
+						<Link href="/read-book" className="text-2xl rounded-2xl p-5 border-2 border-slate-400 bg-slate-300 hover:bg-slate-200">
 						{t("read")}
-					</Link>
+						</Link>
+					</div>
 				</div>
 			</div>
 		</div>
