@@ -28,10 +28,11 @@ const Page = async () => {
         <div className="flex flex-col gap-4 justify-center items-center md:items-start md:justify-center">
           <span className="text-4xl font-bold text-center md:text-left">{t("title")}</span>
           <span className="text-2xl font-medium text-center md:text-left">{t("subtitle")}</span>
-          <div className="mt-4">
+          <div style={{ marginTop: '1rem', textAlign: 'center', width: '100%' }}>
             <Link
               href="/read-book"
               className="text-2xl rounded-2xl p-5 border-2 border-slate-400 bg-slate-300 hover:bg-slate-200"
+              style={{ display: 'inline-block' }}
             >
               {t("read")}
             </Link>
