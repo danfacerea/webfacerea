@@ -1,7 +1,4 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* In globals.css or a similar CSS file */
-.banner-height {
-    height: 150px; /* Set your desired height here */
-}
+
