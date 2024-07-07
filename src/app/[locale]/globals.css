@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* In globals.css or a similar CSS file */
+.banner-height {
+    height: 400px; /* Set your desired height here */
+}
