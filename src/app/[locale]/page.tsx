@@ -31,7 +31,7 @@ const Page = async () => {
           <div className="mt-4 flex justify-center md:justify-start w-full">
             <Link
               href="/read-book"
-              className="text-2xl rounded-2xl p-5 border-2 border-slate-400 bg-slate-300 hover:bg-slate-200"
+              className="text-2xl rounded-2xl p-5 border-2 border-slate-700 bg-slate-300 hover:bg-slate-100"
             >
               {t("read")}
             </Link>
