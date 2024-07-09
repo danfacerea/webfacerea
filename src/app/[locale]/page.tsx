@@ -2,7 +2,7 @@
 import bannerEn from "@/assets/banner_en.jpg";
 import bannerRo from "@/assets/banner_ro.jpg";
 import { getCurrentLocale, getScopedI18n } from "@/locales/server";
-import Link from "next/link";
+import Link from "next/link"; 
 
 const Page = async () => {
   const currentLocale = getCurrentLocale();
