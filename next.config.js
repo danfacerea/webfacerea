@@ -1,4 +1,4 @@
-onst { withPayload } = require("@payloadcms/next/withPayload")
+const { withPayload } = require("@payloadcms/next/withPayload")
 const path = require("path")
 
 /** @type {import("next").NextConfig} */

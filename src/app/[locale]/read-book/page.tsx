@@ -9,7 +9,7 @@ const ReadBookPage = () => {
 	const currentLocale = useCurrentLocale()
 	const hasWindow = typeof window !== "undefined"
 	const offset = 7
-	const maxPage = currentLocale === "en" ? 359 : 353
+	const maxPage = currentLocale === "en" ? 359 : 355
 	const collapseWidth = 1280
 	const bookViewer = useRef<HTMLDivElement>(null)
 
