@@ -28,14 +28,7 @@ const Page = async () => {
         <div className="flex flex-col gap-4 justify-center items-center md:items-start">
           <span className="text-4xl font-bold text-center md:text-left">{t("title")}</span>
           <span className="text-2xl font-medium text-center md:text-left">{t("subtitle")}</span>
-          <div className="mt-4 flex justify-center md:justify-start w-full">
-            <Link
-              href="/read-book"
-              className="text-2xl rounded-2xl p-5 border-2 border-red-400 bg-red-300 hover:bg-red-200"
-            >
-              {t("read")}
-            </Link>
-          </div>
+          
         </div>
       </div>
     </div>
