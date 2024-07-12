@@ -3,12 +3,30 @@ import bannerEn from "@/assets/banner_en.jpg";
 import bannerRo from "@/assets/banner_ro.jpg";
 import { getCurrentLocale, getScopedI18n } from "@/locales/server";
 import Link from "next/link";
+import { Helmet } from 'react-helmet';// Dan added
 
 const Page = async () => {
   const currentLocale = getCurrentLocale();
   const t = await getScopedI18n("Home");
 
   return (
+  
+    <div>
+      <Helmet>
+        <title>Page Title</title>
+        <meta name="description" content="Facerea de la Geneza la Apocalipsa." />
+        <meta name="keywords" content="react, helmet, seo" />
+        <meta property="og:title" content="Page Title" />
+        <meta property="og:description" content="This is the page description." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yourwebsite.com/page-url" />
+        <meta property="og:image" content="https://yourwebsite.com/image.jpg" />
+        <!-- Add other meta tags as needed -->
+      </Helmet>
+      <h1>Hello, world!</h1>
+      <!-- Rest of your page content -->
+    </div>
+  
     <div className="flex flex-col">
       <div className="w-full">
         <img
