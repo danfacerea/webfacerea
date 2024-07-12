@@ -4,26 +4,30 @@ import bannerEn from "@/assets/banner_en.jpg";
 import bannerRo from "@/assets/banner_ro.jpg";
 import Link from "next/link";
 import Head from 'next/head';
+import { getCurrentLocale, getScopedI18n } from "@/locales/server";
+
 
 const Page = () => {
-  const currentLocale = 'en'; // Replace with your logic to determine current locale
+	const currentLocale = getCurrentLocale();
+  //const currentLocale = 'en'; // Replace with your logic to determine current locale
+  //src={currentLocale === "en" ? bannerEn.src : bannerRo.src}
 
   const metadata = {
     en: {
-      title: "Page Title in English",
-      description: "Description in English",
-      keywords: "example, react, helmet",
+      title: "The Creation from Genesis to Revelation",
+      description: "The Creation from Genesis to Revelation explained in detail",
+      keywords: "Creation, Genesis, Revelation",
       ogTitle: "Open Graph Title in English",
       ogDescription: "Open Graph Description in English",
       ogUrl: "https://facerea.ro",
       ogImage: "https://yourwebsite.com/image-en.jpg"
     },
     ro: {
-      title: "Titlul Paginii în Română",
-      description: "Descrierea în Română",
+      title: "Creația de la Geneza la Apocalipsa",
+      description: "Creația de la Geneza la Apocalipsa explicată în detaliu",
       keywords: "exemplu, react, casca",
       ogTitle: "Titlul Open Graph în Română",
-      ogDescription: "Descrierea Open Graph în Română",
+     ogDescription: "Descrierea Open Graph în Română",
       ogUrl: "https://facerea.ro",
       ogImage: "https://yourwebsite.com/image-ro.jpg"
     }
