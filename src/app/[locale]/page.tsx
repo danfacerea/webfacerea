@@ -9,9 +9,7 @@ import { getCurrentLocale, getScopedI18n } from "@/locales/server";
 
 const Page = () => {
 	const currentLocale = getCurrentLocale();
-  //const currentLocale = 'en'; // Replace with your logic to determine current locale
-  //src={currentLocale === "en" ? bannerEn.src : bannerRo.src}
-
+ 
   const metadata = {
     en: {
       title: "The Creation from Genesis to Revelation",
