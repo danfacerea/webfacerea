@@ -23,7 +23,7 @@ const Page = () => {
     ro: {
       title: "Creația de la Geneza la Apocalipsa",
       description: "Creația de la Geneza la Apocalipsa explicată în detaliu",
-      keywords: "exemplu, react, casca",
+      keywords: "Creația, Geneza, Apocalipsa",
       ogTitle: "Titlul Open Graph în Română",
      ogDescription: "Descrierea Open Graph în Română",
       ogUrl: "https://facerea.ro",
