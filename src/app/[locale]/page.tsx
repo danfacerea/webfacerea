@@ -63,8 +63,8 @@ const Page = () => {
             />
           </div>
           <div className="flex flex-col gap-4 justify-center items-center">
-            <span className="text-4xl font-bold">{currentLocale === 'en' ? "Title in English" : "Titlu în Română"}</span>
-            <span className="text-2xl font-medium">{currentLocale === 'en' ? "Subtitle in English" : "Subtitlu în Română"}</span>
+            <span className="text-4xl font-bold">{currentLocale === 'en' ? "The Creation" : "Facerea"}</span>
+            <span className="text-2xl font-medium">{currentLocale === 'en' ? "from Genesis to Revelation?" : "de la Geneza la Apocalipsa?"}</span>
             <Link
               href="/read-book"
               className="text-2xl rounded-2xl p-5 border-2 border-slate-500 bg-slate-300 hover:bg-slate-200"
