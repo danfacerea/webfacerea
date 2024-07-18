@@ -3,6 +3,7 @@
 
 import { useCurrentLocale, useScopedI18n } from "@/locales/client"
 import { useCallback, useEffect, useRef, useState } from "react"
+import Head from 'next/head';
 
 const ReadBookPage = () => {
 	const t = useScopedI18n("ReadBook")
@@ -20,6 +21,43 @@ const width = hasWindow ? window.innerWidth : null;
 return { width, height };
   }, [hasWindow]);
 */
+
+
+
+  const metadata = {
+    en: {
+      title: "The Creation from Genesis to Revelation",
+      description: "The Creation from Genesis to Revelation explained in detail",
+      keywords: "Creation, Genesis, Revelation, Salvation, Scripture, Bible, faith, christian, world",
+      ogTitle: "The Creation",
+      ogDescription: "The Creation book",
+      ogUrl: "https://facerea.ro",
+      ogImage: "https://facerea.ro/public/imgen/1.jpg",
+    },
+    ro: {
+      title: "Creația de la Geneza la Apocalipsa",
+      description: "Creația de la Geneza la Apocalipsa explicată în detaliu",
+      keywords: "Creația, Geneza, Apocalipsa, mântuire, scriptura, biblia, credință, creștin, lume",
+      ogTitle: "Facerea",
+      ogDescription: "Cartea Facerea",
+      ogUrl: "https://facerea.ro",
+      ogImage: "https://facerea.ro/public/imgro/1.jpg",
+    }
+  };
+
+  const currentMetadata = metadata[currentLocale];
+
+	  <Head>
+        <title>{currentMetadata.title}</title>
+        <meta name="description" content={currentMetadata.description} />
+        <meta name="keywords" content={currentMetadata.keywords} />
+        <meta property="og:title" content={currentMetadata.ogTitle} />
+        <meta property="og:description" content={currentMetadata.ogDescription} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={currentMetadata.ogUrl} />
+        <meta property="og:image" content={currentMetadata.ogImage} />
+      </Head>
+   
 
 	const checkOnePage = useCallback(() => {
 		const width = hasWindow ? window.innerWidth : 0
