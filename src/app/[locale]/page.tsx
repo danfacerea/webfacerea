@@ -70,7 +70,7 @@ const Page = async () => {
               href="/read-book"
               className="text-2xl rounded-2xl p-5 border-2 border-slate-500 bg-slate-300 hover:bg-slate-200"
             >
-              {currentLocale === 'en' ? "Read the book now" : "Citește cartea acum"}
+              {currentLocale !== 'ro' ? "Read the book now" : "Citește cartea acum"}
             </Link>
           </div>
         </div>
