@@ -20,7 +20,7 @@ const Page = async () => {
       ogDescription: "The Creation book",
       ogUrl: "https://facerea.ro",
       ogImage: "https://facerea.ro/public/imgen/1.jpg"
-    },
+      },
     ro: {
       title: "Creația de la Geneza la Apocalipsa",
       description: "Creația de la Geneza la Apocalipsa explicată în detaliu",
@@ -45,6 +45,7 @@ const Page = async () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={currentMetadata.ogUrl} />
         <meta property="og:image" content={currentMetadata.ogImage} />
+	<link rel="canonical" href="https://facerea.ro" />
       </Head>
 
       <div className="flex flex-col">
