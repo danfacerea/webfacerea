@@ -28,7 +28,7 @@ const Layout = ({ children, params }: { children: React.ReactNode; params: { loc
       ogDescription: "The Creation book",
       ogUrl: "https://facerea.ro",
       ogImage: "https://facerea.ro/public/imgen/1.jpg"
-      },
+    },
     ro: {
       title: "Creația de la Geneza la Apocalipsa",
       description: "Creația de la Geneza la Apocalipsa explicată în detaliu",
@@ -50,11 +50,11 @@ const Layout = ({ children, params }: { children: React.ReactNode; params: { loc
         <meta property="og:title" content={currentMetadata.ogTitle} />
         <meta property="og:description" content={currentMetadata.ogDescription} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={currentMetadata.url} />
+        <meta property="og:url" content={currentMetadata.ogUrl} />
         <meta property="og:image" content={currentMetadata.ogImage} />
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href={currentMetadata.url} />
+        <link rel="canonical" href={currentMetadata.ogUrl} />
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${TRACKING_ID}`}></script>
         <script
           dangerouslySetInnerHTML={{
