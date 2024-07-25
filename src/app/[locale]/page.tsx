@@ -34,6 +34,8 @@ const Page = async () => {
 
   const currentMetadata = metadata[currentLocale];
 
+// Debugging: Log metadata to console
+  console.log(currentMetadata);
   return (
     <>
       <Head>
