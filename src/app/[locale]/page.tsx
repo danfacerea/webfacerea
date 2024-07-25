@@ -3,7 +3,6 @@ import React from 'react';  // Ensure React is imported
 import bannerEn from "@/assets/banner_en.jpg";
 import bannerRo from "@/assets/banner_ro.jpg";
 import Link from "next/link";
-import Head from 'next/head';
 import { getCurrentLocale, getScopedI18n } from "@/locales/server";
 
 
@@ -11,44 +10,6 @@ const Page = async () => {
 	const currentLocale = getCurrentLocale();
 	const t = await getScopedI18n("Home");
  
-  const metadata = {
-    en: {
-      title: "The Creation from Genesis to Revelation",
-      description: "The Creation from Genesis to Revelation explained in detail",
-      keywords: "Creation, Genesis, Revelation, Salvation, Scripture, Bible, faith, christian, world",
-      ogTitle: "The Creation",
-      ogDescription: "The Creation book",
-      ogUrl: "https://facerea.ro",
-      ogImage: "https://facerea.ro/public/imgen/1.jpg"
-      },
-    ro: {
-      title: "Creația de la Geneza la Apocalipsa",
-      description: "Creația de la Geneza la Apocalipsa explicată în detaliu",
-      keywords: "Creația, Geneza, Apocalipsa, mântuire, scriptura, biblia, credință, creștin, lume",
-      ogTitle: "Facerea",
-     ogDescription: "Cartea Facerea",
-      ogUrl: "https://facerea.ro",
-      ogImage: "https://facerea.ro/public/imgro/1.jpg"
-    }
-  };
-
-  const currentMetadata = metadata[currentLocale];
-
-// Debugging: Log metadata to console
-  console.log(currentMetadata);
-  return (
-    <>
-      <Head>
-        <title>{currentMetadata.title}</title>
-        <meta name="description" content={currentMetadata.description} />
-        <meta name="keywords" content={currentMetadata.keywords} />
-        <meta property="og:title" content={currentMetadata.ogTitle} />
-        <meta property="og:description" content={currentMetadata.ogDescription} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={currentMetadata.ogUrl} />
-        <meta property="og:image" content={currentMetadata.ogImage} />
-	<link rel="canonical" href="https://facerea.ro" />
-      </Head>
 
       <div className="flex flex-col">
         <div className="w-full">
