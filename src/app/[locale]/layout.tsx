@@ -43,9 +43,11 @@ const Layout = ({ children, params }: { children: React.ReactNode; params: { loc
   const currentMetadata = metadata[params.locale] || metadata.en;
 
   return (
+  
     <>
+	
       <Head>
-        <title>{currentMetadata.title}</title>
+	    <title>{currentMetadata.title}</title>
         <meta name="description" content={currentMetadata.description} />
         <meta property="og:title" content={currentMetadata.ogTitle} />
         <meta property="og:description" content={currentMetadata.ogDescription} />
@@ -55,26 +57,29 @@ const Layout = ({ children, params }: { children: React.ReactNode; params: { loc
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="canonical" href={currentMetadata.ogUrl} />
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${TRACKING_ID}`}></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${TRACKING_ID}');
-            `,
-          }}
-        />
+        
       </Head>
       <html lang={params.locale}>
+	  <head>
+				<script async src={`https://www.googletagmanager.com/gtag/js?id=${TRACKING_ID}`}></script>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+							window.dataLayer = window.dataLayer || [];
+							function gtag(){dataLayer.push(arguments);}
+							gtag('js', new Date());
+							gtag('config', '${TRACKING_ID}');
+						`,
+					}}
+				></script>
+		</head>
         <body className={`${font.className} min-h-screen flex flex-col`}>
           <I18nProviderClient locale={params.locale}>
             <NavBar />
             {children}
           </I18nProviderClient>
         </body>
-      </html>
+    </html>
     </>
   );
 };
