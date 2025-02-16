@@ -51,7 +51,7 @@ const Layout = ({ children, params }: { children: React.ReactNode; params: { loc
     <html lang={params.locale}>
       <Head>
         <title>{currentMetadata.title}</title>
-	<meta name="google-site-verification" content="4iJ3tJK7GGS8BmUwUhlUOIuA8yzUn-D7IytPw22c4TI" />
+	    <meta name="google-site-verification" content="4iJ3tJK7GGS8BmUwUhlUOIuA8yzUn-D7IytPw22c4TI" />
         <meta property="og:title" content={currentMetadata.ogTitle} />
         <meta property="og:description" content={currentMetadata.ogDescription} />
         <meta property="og:type" content="website" />
