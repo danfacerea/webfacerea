@@ -5,6 +5,13 @@ import { getCurrentLocale, getScopedI18n } from "@/locales/server";
 import Link from "next/link";
 import { Metadata } from "next";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+    ReactGA?: any;
+  }
+}
+
 export async function generateMetadata(): Promise<Metadata> {
   const currentLocale = getCurrentLocale();
   if (currentLocale === "ro") {
