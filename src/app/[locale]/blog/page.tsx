@@ -1,39 +1,26 @@
-import { getScopedI18n } from "@/locales/server"
+// Temporarily disabled for deployment
+/*
 import configPromise from "@payload-config"
 import { getPayload } from "payload"
-import React from "react"
-import { Post } from "./_components/Post"
+import { notFound } from "next/navigation"
+import { getScopedI18n } from "@/locales/server"
+import { getCurrentLocale } from "@/locales/server"
+import { Blog } from "@/payload-types"
+import { Metadata } from "next"
+import { getScopedI18n } from "@/locales/server"
+import { getCurrentLocale } from "@/locales/server"
+import { Blog } from "@/payload-types"
+import { Metadata } from "next"
+*/
 
-
-const Blog = async () => {
-	const t = await getScopedI18n("Blog")
-	const payload = await getPayload({ config: configPromise })
-	const posts = await payload.find({ collection: "posts" })
-	
-	return (
-		<div className="flex flex-col gap-6 max-w-4xl w-full justify-center items-center my-6 px-4 mx-auto">
-			<h1 className="text-5xl font-bold mt-4">Blog</h1>
-
-			
-			{posts.docs.map(post => (
-				<a
-					key={post.id}
-					href={"/blog/" + post.slug ?? ""}
-					className="w-full pb-4 px-6 border rounded-lg bg-gray-100 hover:bg-gray-200 group"
-				>
-					<div
-						className="w-full py-4"
-						style={{ WebkitMaskImage: "linear-gradient(180deg, #000 60%, transparent)" }}
-					>
-						<Post post={post} isBlogList />
-					</div>
-					<span className="text-blue-600 group-hover:text-blue-500 group-hover:underline">{t("read")} »</span>
-	
-				
-				</a>
-			))}
-		</div>
-	)
+// Temporary placeholder
+const BlogPage = () => {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-4">Blog</h1>
+      <p>Blog temporarily unavailable during deployment.</p>
+    </div>
+  )
 }
 
-export default Blog
+export default BlogPage

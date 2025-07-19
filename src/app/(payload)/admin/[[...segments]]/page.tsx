@@ -1,22 +1,17 @@
-/* THIS FILE WAS GENERATED AUTOMATICALLY BY PAYLOAD. */
-import type { Metadata } from 'next'
-
+// Temporarily disabled for deployment
+/*
 import config from '@payload-config'
-/* DO NOT MODIFY IT BECAUSE IT COULD BE REWRITTEN AT ANY TIME. */
-import { RootPage, generatePageMetadata } from '@payloadcms/next/views'
+import { Admin } from '@payloadcms/next/views'
+*/
 
-type Args = {
-  params: {
-    segments: string[]
-  }
-  searchParams: {
-    [key: string]: string | string[]
-  }
+// Temporary placeholder
+const AdminPage = () => {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-4">Admin Panel</h1>
+      <p>Admin panel temporarily unavailable during deployment.</p>
+    </div>
+  )
 }
 
-export const generateMetadata = ({ params, searchParams }: Args): Promise<Metadata> =>
-  generatePageMetadata({ config, params, searchParams })
-
-const Page = ({ params, searchParams }: Args) => RootPage({ config, params, searchParams })
-
-export default Page
+export default AdminPage

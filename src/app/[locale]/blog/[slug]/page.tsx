@@ -1,23 +1,22 @@
-import { getScopedI18n } from "@/locales/server"
+// Temporarily disabled for deployment
+/*
 import configPromise from "@payload-config"
-import Link from "next/link"
-import { notFound } from "next/navigation"
 import { getPayload } from "payload"
-import { Post } from "../_components/Post"
+import { notFound } from "next/navigation"
+import { getScopedI18n } from "@/locales/server"
+import { getCurrentLocale } from "@/locales/server"
+import { Blog } from "@/payload-types"
+import { Metadata } from "next"
+*/
 
-export default async function Page({ params }: { params: { slug: string } }) {
-	const t = await getScopedI18n("Blog")
-	const payload = await getPayload({ config: configPromise })
-	const post = await payload.find({ collection: "posts", where: { slug: { equals: params.slug } } })
-
-	if (post.totalDocs === 0) return notFound()
-
-	return (
-		<div className="flex flex-col gap-4 max-w-4xl w-full md:w-max mt-12 px-8 mx-auto">
-			<Link href="/blog" className="text-blue-600 hover:text-blue-400 hover:underline">« {t("back")}</Link>
-			<main className="md:min-w-[36rem] md:max-w-full">
-				<Post post={post.docs[0]} />
-			</main>
-		</div>
-	)
+// Temporary placeholder
+const BlogPostPage = () => {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-4">Blog Post</h1>
+      <p>Blog posts temporarily unavailable during deployment.</p>
+    </div>
+  )
 }
+
+export default BlogPostPage
