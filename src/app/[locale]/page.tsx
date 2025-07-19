@@ -5,13 +5,6 @@ import { getCurrentLocale, getScopedI18n } from "@/locales/server";
 import Link from "next/link";
 import { Metadata } from "next";
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-    ReactGA?: any;
-  }
-}
-
 export async function generateMetadata(): Promise<Metadata> {
   const currentLocale = getCurrentLocale();
   if (currentLocale === "ro") {
@@ -97,22 +90,6 @@ const Page = async () => {
           href={pdfHref}
           download
           className="text-blue-600 underline text-lg hover:text-blue-800"
-          onClick={() => {
-            if (typeof window !== 'undefined') {
-              if (window.gtag) {
-                window.gtag('event', 'download', {
-                  event_category: 'PDF',
-                  event_label: pdfHref,
-                });
-              } else if (window.ReactGA) {
-                window.ReactGA.event({
-                  category: 'PDF',
-                  action: 'download',
-                  label: pdfHref,
-                });
-              }
-            }
-          }}
         >
           {t("download")}
         </a>
