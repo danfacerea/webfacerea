@@ -3,7 +3,6 @@ export default {
 		title: "CREAȚIA",
 		subtitle: "DE LA GENEZA LA APOCALIPSA",
 		read: "Citește cartea acum",
-		download: "Descarcă PDF",
 	},
 	Navbar: {
 		icon: "FACEREA",

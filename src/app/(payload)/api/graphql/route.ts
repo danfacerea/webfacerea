@@ -1,10 +1,6 @@
-// Temporarily disabled for deployment
-/*
+/* THIS FILE WAS GENERATED AUTOMATICALLY BY PAYLOAD. */
+/* DO NOT MODIFY it because it could be re-written at any time. */
 import config from '@payload-config'
-import { graphqlHandler } from '@payloadcms/next/routes'
-*/
+import { GRAPHQL_POST } from '@payloadcms/next/routes'
 
-// Temporary placeholder
-export async function POST() {
-  return new Response('GraphQL API temporarily disabled', { status: 503 })
-}
+export const POST = GRAPHQL_POST(config)

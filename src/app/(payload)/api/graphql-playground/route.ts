@@ -1,10 +1,6 @@
-// Temporarily disabled for deployment
-/*
+/* THIS FILE WAS GENERATED AUTOMATICALLY BY PAYLOAD. */
+/* DO NOT MODIFY it because it could be re-written at any time. */
 import config from '@payload-config'
-import { graphqlPlayground } from '@payloadcms/next/routes'
-*/
+import { GRAPHQL_PLAYGROUND_GET } from '@payloadcms/next/routes'
 
-// Temporary placeholder
-export async function GET() {
-  return new Response('GraphQL Playground temporarily disabled', { status: 503 })
-}
+export const GET = GRAPHQL_PLAYGROUND_GET(config)

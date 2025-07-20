@@ -3,7 +3,6 @@ export default {
 		title: "THE CREATION",
 		subtitle: "FROM GENESIS TO REVELATION",
 		read: "Read the book now",
-		download: "Download PDF",
 	},
 	Navbar: {
 		icon: "THE CREATION",

@@ -42,16 +42,11 @@ const Layout = ({ children, params }: { children: React.ReactNode; params: { loc
 
   const currentMetadata = metadata[params.locale] || metadata.en;
 
-
-<meta name="google-site-verification" content="4iJ3tJK7GGS8BmUwUhlUOIuA8yzUn-D7IytPw22c4TI" />
-
-
-
   return (
     <html lang={params.locale}>
       <Head>
         <title>{currentMetadata.title}</title>
-	    <meta name="google-site-verification" content="4iJ3tJK7GGS8BmUwUhlUOIuA8yzUn-D7IytPw22c4TI" />
+        <meta name="description" content={currentMetadata.description} />
         <meta property="og:title" content={currentMetadata.ogTitle} />
         <meta property="og:description" content={currentMetadata.ogDescription} />
         <meta property="og:type" content="website" />
