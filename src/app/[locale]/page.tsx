@@ -1,8 +1,54 @@
-/* eslint-disable @next/next/no-img-element */
+import { Metadata } from "next";
 import bannerEn from "@/assets/banner_en.jpg";
 import bannerRo from "@/assets/banner_ro.jpg";
 import { getCurrentLocale, getScopedI18n } from "@/locales/server";
 import Link from "next/link";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const currentLocale = getCurrentLocale();
+  if (currentLocale === "ro") {
+    return {
+      title: "CREAȚIA – DE LA GENEZA LA APOCALIPSA",
+      description: "Citește CREAȚIA, o carte care explorează povestea de la Geneza la Apocalipsa. Descarcă PDF-ul sau citește online.",
+      openGraph: {
+        title: "CREAȚIA – DE LA GENEZA LA APOCALIPSA",
+        description: "Citește CREAȚIA, o carte care explorează povestea de la Geneza la Apocalipsa. Descarcă PDF-ul sau citește online.",
+        url: "https://facerea.ro",
+        siteName: "CREAȚIA",
+        images: [
+          {
+            url: "/banner_ro.jpg",
+            width: 1200,
+            height: 630,
+            alt: "CREAȚIA – DE LA GENEZA LA APOCALIPSA",
+          },
+        ],
+        locale: "ro_RO",
+        type: "website",
+      },
+    };
+  }
+  return {
+    title: "THE CREATION – FROM GENESIS TO REVELATION",
+    description: "Read THE CREATION, a book exploring the story from Genesis to Revelation. Download the PDF or read online.",
+    openGraph: {
+      title: "THE CREATION – FROM GENESIS TO REVELATION",
+      description: "Read THE CREATION, a book exploring the story from Genesis to Revelation. Download the PDF or read online.",
+      url: "https://facerea.ro",
+      siteName: "THE CREATION",
+      images: [
+        {
+          url: "/banner_en.jpg",
+          width: 1200,
+          height: 630,
+          alt: "THE CREATION – FROM GENESIS TO REVELATION",
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+  };
+}
 
 const Page = async () => {
   const currentLocale = getCurrentLocale();
@@ -36,6 +82,13 @@ const Page = async () => {
           >
           {t("read")}
         </Link>
+        <a
+          href={currentLocale === "ro" ? "/DownloadRomanian/Facerea.pdf" : "/DownloadEnglish/TheCreation.pdf"}
+          download
+          className="text-blue-600 underline text-lg hover:text-blue-800 mt-2"
+        >
+          {t("download")}
+        </a>
         </div>
       </div>
     </div>
