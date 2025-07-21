@@ -1,7 +1,7 @@
 {
 	"name": "SiteFacerea",
 	"version": "0.1.0",
-	"scripts": {
+	"scripts":  {
 		"sitemap": "next-sitemap",
 		"dev": "next dev",
 		"build": "next build",
