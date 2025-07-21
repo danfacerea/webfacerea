@@ -55,6 +55,7 @@ const Layout = ({ children, params }: { children: React.ReactNode; params: { loc
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="canonical" href={currentMetadata.ogUrl} />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <body className={`${font.className} min-h-screen flex flex-col`}>
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${TRACKING_ID}`}></script>
