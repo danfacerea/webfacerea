@@ -6,8 +6,10 @@ import Link from "next/link";
 
 export async function generateMetadata(): Promise<Metadata> {
   const currentLocale = getCurrentLocale();
+  const metadataBase = new URL("https://facerea.ro");
   if (currentLocale === "ro") {
     return {
+      metadataBase,
       title: "CREAȚIA – DE LA GENEZA LA APOCALIPSA",
       description: "Citește CREAȚIA, o carte care explorează povestea de la Geneza la Apocalipsa. Descarcă PDF-ul sau citește online.",
       openGraph: {
@@ -29,6 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
     };
   }
   return {
+    metadataBase,
     title: "THE CREATION – FROM GENESIS TO REVELATION",
     description: "Read THE CREATION, a book exploring the story from Genesis to Revelation. Download the PDF or read online.",
     openGraph: {
