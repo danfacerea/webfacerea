@@ -29,7 +29,7 @@ export const LanguagePicker = (props: LanguagePickerProps) => {
 
 	return (
 		<>
-			<Menu as="div" className={"relative hidden md:inline-block text-left " + props.className ?? ""}>
+			<Menu as="div" className={"relative hidden md:inline-block text-left " + (props.className ?? "")}>
 				<Menu.Button
 					as="button"
 					className="flex gap-2 items-center rounded-md p-2 w-full text-gray-400 bg-gray-700/50 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -57,8 +57,8 @@ export const LanguagePicker = (props: LanguagePickerProps) => {
 						onClick={() => changeLocale(code as keyof typeof langs)}
 						key={lang.key}
 						className={`flex-1 text-center md:text-left flex gap-2 items-center justify-center rounded-md px-2 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white ${
-							currentLocale === code ? "bg-gray-700" : ""
-						}`}
+						currentLocale === code ? "bg-gray-700" : ""
+					}`}
 					>
 						<img alt={lang.key} src={lang.flag.src} width="20" height="20" />
 						{t(lang.key)}
