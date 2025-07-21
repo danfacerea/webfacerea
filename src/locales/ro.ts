@@ -1,8 +1,8 @@
 export default {
 	Home: {
-		title: "CREATIA",
+		title: "CREAȚIA",
 		subtitle: "DE LA GENEZA LA APOCALIPSA",
-		read: "Citeste cartea acum!",
+		read: "Citește cartea acum",
 	},
 	Navbar: {
 		icon: "FACEREA",
@@ -15,14 +15,14 @@ export default {
 		romanian: "Română",
 	},
 	Order: {
-		message: "Veți fi redirecționat în curând...",
+		message: "În curs de implementare - mergi înapoi...",  //"Veți fi redirecționat în curând..."
 	},
 	NotFound: {
 		title: "Pagina nu a fost găsită",
 		content: "Ne pare rău, dar pagina pe care o căutați nu există.",
 	},
 	Contact: {
-		title: "Intrați în contact",
+		title: "Contactați-ne",
 		subtitle: "Trimiteți-ne un mesaj rapid și vă vom răspunde",
 		message: "Mesaj",
 		name: "Nume",
@@ -33,8 +33,8 @@ export default {
 		fill: "Vă rugăm să completați toate câmpurile.",
 	},
 	ReadBook: {
-		previous: "Pagina anterioară",
-		next: "Pagina următoare",
+		previous: "<- Pagina anterioară",
+		next: "Pagina următoare ->",
 		fullscreen: "Ecran complet",
 		exitFullscreen: "Ieșiți din ecranul complet",
 		jump: "Salt la pagină...",

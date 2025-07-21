@@ -2,7 +2,7 @@ export default {
 	Home: {
 		title: "THE CREATION",
 		subtitle: "FROM GENESIS TO REVELATION",
-		read: "Read the book now!",
+		read: "Read the book now",
 	},
 	Navbar: {
 		icon: "THE CREATION",
@@ -15,7 +15,7 @@ export default {
 		romanian: "Romania",
 	},
 	Order: {
-		message: "You will be redirected shortly...",
+		message: "Under development - go back...",   //"You will be redirected shortly..."
 	},
 	NotFound: {
 		title: "Page not found",
@@ -33,8 +33,8 @@ export default {
 		fill: "Please fill out all the fields.",
 	},
 	ReadBook: {
-		previous: "Previous page",
-		next: "Next page",
+		previous: "<- Previous page",
+		next: "Next page ->",
 		fullscreen: "Fullscreen",
 		exitFullscreen: "Exit Fullscreen",
 		jump: "Jump to Page...",

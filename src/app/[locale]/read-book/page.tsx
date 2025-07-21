@@ -1,17 +1,63 @@
-/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @next/next/no-img-element  */
 "use client"
 
 import { useCurrentLocale, useScopedI18n } from "@/locales/client"
 import { useCallback, useEffect, useRef, useState } from "react"
+import Head from 'next/head';
 
 const ReadBookPage = () => {
 	const t = useScopedI18n("ReadBook")
 	const currentLocale = useCurrentLocale()
 	const hasWindow = typeof window !== "undefined"
 	const offset = 7
-	const maxPage = currentLocale === "en" ? 359 : 350
+	const maxPage = currentLocale === "en" ? 359 : 355
 	const collapseWidth = 1280
 	const bookViewer = useRef<HTMLDivElement>(null)
+
+/*	
+ const checkOnePage  = useCallback(() => {
+const width = hasWindow ? window.innerWidth : null;
+ const height = hasWindow ? window.innerHeight : null;
+return { width, height };
+  }, [hasWindow]);
+*/
+
+
+
+  const metadata = {
+    en: {
+      title: "The Creation from Genesis to Revelation",
+      description: "The Creation from Genesis to Revelation explained in detail",
+      keywords: "Creation, Genesis, Revelation, Salvation, Scripture, Bible, faith, christian, world",
+      ogTitle: "The Creation",
+      ogDescription: "The Creation book",
+      ogUrl: "https://facerea.ro",
+      ogImage: "https://facerea.ro/public/imgen/1.jpg",
+    },
+    ro: {
+      title: "Creația de la Geneza la Apocalipsa",
+      description: "Creația de la Geneza la Apocalipsa explicată în detaliu",
+      keywords: "Creația, Geneza, Apocalipsa, mântuire, scriptura, biblia, credință, creștin, lume",
+      ogTitle: "Facerea",
+      ogDescription: "Cartea Facerea",
+      ogUrl: "https://facerea.ro",
+      ogImage: "https://facerea.ro/public/imgro/1.jpg",
+    }
+  };
+
+  const currentMetadata = metadata[currentLocale];
+
+	  <Head>
+        <title>{currentMetadata.title}</title>
+        <meta name="description" content={currentMetadata.description} />
+        <meta name="keywords" content={currentMetadata.keywords} />
+        <meta property="og:title" content={currentMetadata.ogTitle} />
+        <meta property="og:description" content={currentMetadata.ogDescription} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={currentMetadata.ogUrl} />
+        <meta property="og:image" content={currentMetadata.ogImage} />
+      </Head>
+   
 
 	const checkOnePage = useCallback(() => {
 		const width = hasWindow ? window.innerWidth : 0
@@ -23,7 +69,9 @@ const ReadBookPage = () => {
 	const [loadedR, setLoadedR] = useState(true)
 	const [fullscreen, setFullscreen] = useState(false)
 	const [isOnePage, setOnePage] = useState(checkOnePage())
-
+	
+	const [touchStartX, setTouchStartX] = useState(0) //Dan
+	
 	const prevPage = useCallback(
 		() => {
 			if (page > 1 + (isOnePage ? 0 : 1)) {
@@ -47,6 +95,47 @@ const ReadBookPage = () => {
 		},
 		[isOnePage, maxPage, page],
 	)
+
+
+
+//Dan
+
+	const handleTouchStart = (e: TouchEvent) => {
+		setTouchStartX(e.touches[0].clientX)
+	}
+	const handleTouchMove = (e: TouchEvent) => {
+		if (touchStartX === 0) return
+		const touchEndX = e.touches[0].clientX
+		const touchDiff = touchEndX - touchStartX
+
+		if (touchDiff > 100) {
+			prevPage()
+			setTouchStartX(0)
+		} else if (touchDiff < -100) {
+			nextPage()
+			setTouchStartX(0)
+		}
+	}
+	
+    useEffect(() => {
+    const viewer = bookViewer.current
+    if (!viewer) return
+
+    viewer.addEventListener("touchstart", handleTouchStart)
+    viewer.addEventListener("touchmove", handleTouchMove)
+
+    return () => {
+      viewer.removeEventListener("touchstart", handleTouchStart)
+      viewer.removeEventListener("touchmove", handleTouchMove)
+    }
+  }, [handleTouchStart, handleTouchMove])
+//Dan END
+
+
+
+
+
+	
 
 	useEffect(() => {
 		const handleKeyDown = (event: WindowEventMap["keydown"]) => {
@@ -88,11 +177,11 @@ const ReadBookPage = () => {
 			>
 				<div id="lpage" className={`${fullscreen ? "" : "flex-1"}`}>
 					<img
-						width={720}
+						width={720 * 1.2} //DAN multiply with 1.3
 						height={1024}
 						src={`https://facerea.ro/img${currentLocale}/${page}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
-						className={`max-h-bookMobile md:max-h-book w-auto aspect-auto ${loadedL ? "" : "animate-pulse-fast"}`}
+						className={`max-h-bookMobile md:max-h-book w-100% aspect-auto ${loadedL ? "" : "animate-pulse-fast"}`}
 						onLoad={() => setLoadedL(true)}
 						onError={() => setLoadedL(true)}
 					/>
@@ -103,11 +192,11 @@ const ReadBookPage = () => {
 					}`}
 				>
 					<img
-						width={720}
+						width={720 *1.2} //Dan
 						height={1440}
 						src={`https://facerea.ro/img${currentLocale}/${page + 1}.jpg`}
 						alt={`${t("page")} ${page - offset}`}
-						className={`max-h-bookMobile md:max-h-book w-auto aspect-auto ${loadedR ? "" : "animate-pulse-fast"}`}
+						className={`max-h-bookMobile md:max-h-book w-100% aspect-auto ${loadedR ? "" : "animate-pulse-fast"}`}
 						onLoad={() => setLoadedR(true)}
 						onError={() => setLoadedR(true)}
 					/>
@@ -115,10 +204,10 @@ const ReadBookPage = () => {
 			</div>
 
 			<div className="flex flex-col order-last md:order-first px-4 pb-4 justify-between content-center gap-2 w-full md:w-max">
-				<button className="px-3 py-2 flex-1 rounded bg-gray-300 hover:bg-gray-400" type="button" onClick={() => prevPage()}>
-					{t("previous")}
+				<button className="px-3 py-2 flex-1 rounded bg-gray-300 hover:bg-gray-400" type="button" onClick={() => nextPage()}>
+					{t("next")}
 				</button>
-
+				
 				<input
 					placeholder={t("jump")}
 					className="px-3 py-1 flex-1 bg-white rounded border-2 border-gray-300 text-center"
@@ -131,15 +220,16 @@ const ReadBookPage = () => {
 							}
 							event.currentTarget.value = ""
 							
-    							event.currentTarget.blur(); // Call blur() method on the text box
+    							event.currentTarget.blur(); // Dan  Call blur() method on the text box
   
 						}
 					}}
 				/>
 
-				<button className="px-3 py-2 flex-1 rounded bg-gray-300 hover:bg-gray-400" type="button" onClick={() => nextPage()}>
-					{t("next")}
+				<button className="px-3 py-2 flex-1 rounded bg-gray-300 hover:bg-gray-400" type="button" onClick={() => prevPage()}>
+					{t("previous")}
 				</button>
+
 
 				<button
 					className="hidden md:block px-3 py-2 flex-1 rounded bg-gray-300 hover:bg-gray-400"
