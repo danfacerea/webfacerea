@@ -1,22 +1,16 @@
-/* THIS FILE WAS GENERATED AUTOMATICALLY BY PAYLOAD. */
-import type { Metadata } from 'next'
+// import config from '@payload-config'
+// import { Admin } from '@payloadcms/next/views'
 
-import config from '@payload-config'
-/* DO NOT MODIFY IT BECAUSE IT COULD BE REWRITTEN AT ANY TIME. */
-import { RootPage, generatePageMetadata } from '@payloadcms/next/views'
+export default function AdminPage() {
+  if (process.env.DISABLE_PAYLOAD_ADMIN === "true") {
+    return (
+      <div style={{ padding: 40, textAlign: "center" }}>
+        <h1>Admin panel is disabled in production.</h1>
+      </div>
+    );
+  }
 
-type Args = {
-  params: {
-    segments: string[]
-  }
-  searchParams: {
-    [key: string]: string | string[]
-  }
+  // Uncomment and use your original admin code here:
+  // return <Admin config={config} />;
+  return null;
 }
-
-export const generateMetadata = ({ params, searchParams }: Args): Promise<Metadata> =>
-  generatePageMetadata({ config, params, searchParams })
-
-const Page = ({ params, searchParams }: Args) => RootPage({ config, params, searchParams })
-
-export default Page
