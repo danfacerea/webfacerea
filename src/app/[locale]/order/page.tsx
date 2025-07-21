@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useScopedI18n } from "@/locales/client"
 import { redirect } from "next/navigation"

@@ -1,5 +1,6 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element  */
-"use client"
 
 import { useCurrentLocale, useScopedI18n } from "@/locales/client"
 import { useCallback, useEffect, useRef, useState } from "react"
