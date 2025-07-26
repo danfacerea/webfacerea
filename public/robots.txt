@@ -2,5 +2,6 @@ User-agent: *
 Disallow: /admin/
 Disallow: /login/
 Disallow: /private/
+Disallow: /public/
 
 Sitemap: https://www.facerea.ro/sitemap.xml
