@@ -2,6 +2,21 @@ import { createI18nMiddleware } from "next-international/middleware"
 import { NextRequest } from "next/server"
 import { locales } from "./i18n"
 
+// Funcție pentru detectarea limbii în funcție de IP
+function getLocaleFromIP(request: NextRequest): "ro" | "en" {
+	// Obține IP-ul din header-ul CF-IPCountry (Cloudflare) sau din geoip
+	const country = request.headers.get('CF-IPCountry') || 
+				   request.headers.get('X-Vercel-IP-Country') ||
+				   request.geo?.country
+
+	// România și Moldova → română, restul → engleză
+	if (country === 'RO' || country === 'MD') {
+		return 'ro'
+	}
+	
+	return 'en'
+}
+
 const I18nMiddleware = createI18nMiddleware({
 	locales,
 	defaultLocale: "en",
@@ -9,7 +24,17 @@ const I18nMiddleware = createI18nMiddleware({
 })
 
 export function middleware(request: NextRequest) {
-	return I18nMiddleware(request)
+	// Detectează limba în funcție de IP
+	const detectedLocale = getLocaleFromIP(request)
+	
+	// Creează middleware-ul cu limba detectată
+	const middleware = createI18nMiddleware({
+		locales,
+		defaultLocale: detectedLocale,
+		urlMappingStrategy: "rewrite",
+	})
+	
+	return middleware(request)
 }
 
 export const config = {
