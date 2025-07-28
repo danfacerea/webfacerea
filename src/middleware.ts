@@ -1,5 +1,5 @@
 import { createI18nMiddleware } from "next-international/middleware"
-import { NextRequest } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import { locales } from "./i18n"
 
 // Funcție pentru detectarea limbii în funcție de IP
@@ -8,6 +8,9 @@ function getLocaleFromIP(request: NextRequest): "ro" | "en" {
 	const country = request.headers.get('CF-IPCountry') || 
 				   request.headers.get('X-Vercel-IP-Country') ||
 				   request.geo?.country
+
+	// Debug: log pentru a vedea ce țară este detectată
+	console.log('Detected country:', country)
 
 	// România și Moldova → română, restul → engleză
 	if (country === 'RO' || country === 'MD') {
@@ -24,17 +27,22 @@ const I18nMiddleware = createI18nMiddleware({
 })
 
 export function middleware(request: NextRequest) {
-	// Detectează limba în funcție de IP
-	const detectedLocale = getLocaleFromIP(request)
+	// Verifică dacă utilizatorul accesează rădăcina site-ului (fără /en/ sau /ro/)
+	const pathname = request.nextUrl.pathname
+	const isRootPath = pathname === '/' || pathname === ''
 	
-	// Creează middleware-ul cu limba detectată
-	const middleware = createI18nMiddleware({
-		locales,
-		defaultLocale: detectedLocale,
-		urlMappingStrategy: "rewrite",
-	})
+	if (isRootPath) {
+		// Detectează limba în funcție de IP doar pentru rădăcina site-ului
+		const detectedLocale = getLocaleFromIP(request)
+		
+		// Redirecționează către limba detectată
+		const url = request.nextUrl.clone()
+		url.pathname = `/${detectedLocale}`
+		return NextResponse.redirect(url)
+	}
 	
-	return middleware(request)
+	// Pentru toate celelalte rute, folosește middleware-ul normal
+	return I18nMiddleware(request)
 }
 
 export const config = {
