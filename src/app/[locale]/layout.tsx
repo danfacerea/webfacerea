@@ -7,17 +7,12 @@ import { Lora } from "next/font/google";
 import NavBar from "@/app/_components/NavBar";
 import { useEffect } from "react";
 import Head from 'next/head';
-import ReactGA from "react-ga";
+import Script from 'next/script';
 
 const font = Lora({ subsets: ["latin"] });
 const TRACKING_ID = "G-YRVLSBHNZ5"; // Replace with your tracking ID
 
 const Layout = ({ children, params }: { children: React.ReactNode; params: { locale: Locale } }) => {
-  useEffect(() => {
-    ReactGA.initialize(TRACKING_ID);
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
-
   // Metadata for English and Romanian
   const metadata = {
     en: {
@@ -58,17 +53,19 @@ const Layout = ({ children, params }: { children: React.ReactNode; params: { loc
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body className={`${font.className} min-h-screen flex flex-col`}>
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=G-YRVLSBHNZ5`}></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-YRVLSBHNZ5');
-            `,
-          }}
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${TRACKING_ID}`}
+          strategy="afterInteractive"
         />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${TRACKING_ID}');
+          `}
+        </Script>
         <I18nProviderClient locale={params.locale}>
           <NavBar />
           {children}
