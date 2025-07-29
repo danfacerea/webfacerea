@@ -18,7 +18,22 @@ const nextConfig = {
 				hostname: "facerea.ro",
 			},
 		],
-	}
+	},
+	async redirects() {
+		return [
+			{
+				source: '/:path*',
+				has: [
+					{
+						type: 'host',
+						value: 'www.facerea.ro',
+					},
+				],
+				destination: 'https://facerea.ro/:path*',
+				permanent: true,
+			},
+		]
+	},
 }
 
 module.exports = withPayload(nextConfig, { configPath: path.resolve(__dirname, "payload", "payload.config.ts") })
