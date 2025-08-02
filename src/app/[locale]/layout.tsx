@@ -18,7 +18,7 @@ const Layout = ({ children, params }: { children: React.ReactNode; params: { loc
     en: {
       title: "The Creation from Genesis to Revelation",
       description: "The Creation from Genesis to Revelation explained in detail",
-      keywords: "Creation, Genesis, Revelation, Salvation, Scripture, Bible, faith, christian, world",
+      keywords: "Creation, The creation of the world, Genesis, Revelation, salvation, Scripture, Bible, faith, christian, world, resurrection of the dead, sheol, end of age, end times, rapture, the thousand year kingdom",
       ogTitle: "The Creation",
       ogDescription: "The Creation book",
       ogUrl: "https://facerea.ro",
@@ -27,7 +27,7 @@ const Layout = ({ children, params }: { children: React.ReactNode; params: { loc
     ro: {
       title: "Creația de la Geneza la Apocalipsa",
       description: "Creația de la Geneza la Apocalipsa explicată în detaliu",
-      keywords: "Creația, Geneza, Apocalipsa, mântuire, scriptura, biblia, credință, creștin, lume",
+      keywords: "Creația, Facerea lumii, Geneza, Apocalipsa, mântuire, scriptura, biblia, credință, creștin, lume, învierea morților, locuința morților, sfârșitul lumii, vremea sfârșitului, răpire, împărăția de o mie de ani",
       ogTitle: "Facerea",
       ogDescription: "Cartea Facerea",
       ogUrl: "https://facerea.ro",
