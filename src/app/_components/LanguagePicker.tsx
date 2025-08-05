@@ -36,7 +36,7 @@ export const LanguagePicker = (props: LanguagePickerProps) => {
 
   const handleChangeLocale = (locale: "en" | "ro") => {
     const newPath = `/${locale}${getPathWithoutLocale()}`;
-    router.push(newPath);
+    window.location.href = newPath;
   };
 
   return (
