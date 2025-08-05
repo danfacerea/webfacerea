@@ -1,68 +1,34 @@
-import { NextResponse } from "next/server";
+import * as NextServer from "next/server";
 import type { NextRequest } from "next/server";
-import { locales } from "./src/i18n"; // corect: i18n e în /src
+import { locales } from "./src/i18n"; // ajustează dacă e în alt loc
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Dacă URL-ul are deja limbă în el, continuă normal
+  // Verifică dacă URL-ul are deja un prefix de limbă (/ro, /en)
   const hasLocale = locales.some((locale) => pathname.startsWith(`/${locale}`));
   if (hasLocale) {
-    return NextResponse.next();
+    return NextServer.NextResponse.next();
   }
 
-  // Dacă utilizatorul a ales deja limba (cookie setat de LanguagePicker), nu forța redirect
+  // Verifică dacă utilizatorul a ales deja o limbă (cookie "langSet" e setat)
   const langSet = request.cookies.get("langSet")?.value;
   if (langSet === "true") {
-    return NextResponse.next();
+    return NextServer.NextResponse.next();
   }
 
-  // Alege limba implicită pe baza locației (RO → ro, altfel en)
+  // Detectează IP-ul și alege limba implicită
   const locale = request.geo?.country === "RO" ? "ro" : "en";
   const url = request.nextUrl.clone();
   url.pathname = `/${locale}${pathname}`;
 
-  // Marchează că redirectul s-a făcut o dată
-  const response = NextResponse.redirect(url);
+  // Redirecționează și setează cookie pentru a nu mai forța pe viitor
+  const response = NextServer.NextResponse.redirect(url);
   response.cookies.set("langSet", "true", { path: "/" });
   return response;
 }
 
-// Middleware activ doar pentru paginile reale, nu pentru /_next sau fișiere statice
-export const config = {
-  matcher: ["/((?!_next|favicon.ico|.*\\..*).*)"],
-};
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-import { locales } from "./src/i18n"; // corect: i18n e în /src
-
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-
-  // Dacă URL-ul are deja limbă în el, continuă normal
-  const hasLocale = locales.some((locale) => pathname.startsWith(`/${locale}`));
-  if (hasLocale) {
-    return NextResponse.next();
-  }
-
-  // Dacă utilizatorul a ales deja limba (cookie setat de LanguagePicker), nu forța redirect
-  const langSet = request.cookies.get("langSet")?.value;
-  if (langSet === "true") {
-    return NextResponse.next();
-  }
-
-  // Alege limba implicită pe baza locației (RO → ro, altfel en)
-  const locale = request.geo?.country === "RO" ? "ro" : "en";
-  const url = request.nextUrl.clone();
-  url.pathname = `/${locale}${pathname}`;
-
-  // Marchează că redirectul s-a făcut o dată
-  const response = NextResponse.redirect(url);
-  response.cookies.set("langSet", "true", { path: "/" });
-  return response;
-}
-
-// Middleware activ doar pentru paginile reale, nu pentru /_next sau fișiere statice
+// Middleware-ul se aplică doar pe rutele care nu sunt fișiere statice sau din /_next
 export const config = {
   matcher: ["/((?!_next|favicon.ico|.*\\..*).*)"],
 };
