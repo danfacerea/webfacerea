@@ -27,16 +27,19 @@ export const LanguagePicker = (props: LanguagePickerProps) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Extrage calea fără prefixul de limbă
-  const getPathWithoutLocale = () => {
-    const parts = pathname.split("/");
-    // parts[0] este "", parts[1] este locale ("en" sau "ro")
-    return "/" + parts.slice(2).join("/");
-  };
-
   const handleChangeLocale = (locale: "en" | "ro") => {
-    const newPath = `/${locale}${getPathWithoutLocale()}`;
-    window.location.href = newPath;
+    const currentPath = pathname || "/";
+    const pathSegments = currentPath.split("/").filter(Boolean); // elimină golurile
+
+    // Înlocuiește limba actuală cu cea nouă sau adaugă dacă lipsește
+    if (pathSegments[0] === "en" || pathSegments[0] === "ro") {
+      pathSegments[0] = locale;
+    } else {
+      pathSegments.unshift(locale);
+    }
+
+    const newPath = "/" + pathSegments.join("/");
+    router.push(newPath);
   };
 
   return (
@@ -63,6 +66,7 @@ export const LanguagePicker = (props: LanguagePickerProps) => {
           ))}
         </Menu.Items>
       </Menu>
+
       <div className="flex gap-2 md:hidden">
         {Object.entries(langs).map(([code, lang]) => (
           <button
