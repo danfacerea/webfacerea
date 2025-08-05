@@ -2,10 +2,6 @@ import { Metadata } from "next";
 import { getCurrentLocale, getScopedI18n } from "@/locales/server";
 import Link from "next/link";
 
-export function generateStaticParams() {
-  return [{ locale: "ro" }, { locale: "en" }];
-}
-
 export async function generateMetadata(): Promise<Metadata> {
   const currentLocale = getCurrentLocale();
   const metadataBase = new URL("https://facerea.ro");

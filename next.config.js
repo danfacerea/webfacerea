@@ -34,11 +34,7 @@ const nextConfig = {
 			},
 		]
 	},
-	i18n: {
-  locales: ["en", "ro"],
-  defaultLocale: "ro",
-  localeDetection: false,
-},
+	
 }
 
 module.exports = withPayload(nextConfig, { configPath: path.resolve(__dirname, "payload", "payload.config.ts") })

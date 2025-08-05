@@ -3,7 +3,6 @@
 
 import { useChangeLocale, useCurrentLocale, useScopedI18n } from "@/locales/client"
 import { Menu } from "@headlessui/react"
-import { useRouter, usePathname } from "next/navigation"
 
 const langs = {
   en: {
@@ -22,30 +21,9 @@ interface LanguagePickerProps {
 }
 
 export const LanguagePicker = (props: LanguagePickerProps) => {
-  const currentLocale = useCurrentLocale();
-  const t = useScopedI18n("Navbar");
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const handleChangeLocale = (locale: "en" | "ro") => {
-    // Salvează preferința utilizatorului
-    if (typeof window !== "undefined") {
-      localStorage.setItem("langSet", "true");
-    }
-
-    const currentPath = pathname || "/";
-    const pathSegments = currentPath.split("/").filter(Boolean);
-
-    // Înlocuiește prefixul de limbă sau adaugă-l
-    if (pathSegments[0] === "en" || pathSegments[0] === "ro") {
-      pathSegments[0] = locale;
-    } else {
-      pathSegments.unshift(locale);
-    }
-
-    const newPath = "/" + pathSegments.join("/");
-    window.location.assign(newPath); // forțează refresh complet pentru a schimba contextul de limbă
-  };
+  const currentLocale = useCurrentLocale()
+  const changeLocale = useChangeLocale()
+  const t = useScopedI18n("Navbar")
 
   return (
     <>
@@ -61,7 +39,7 @@ export const LanguagePicker = (props: LanguagePickerProps) => {
           {Object.entries(langs).map(([code, lang]) => (
             <Menu.Item
               as="button"
-              onClick={() => handleChangeLocale(code as "en" | "ro")}
+              onClick={() => changeLocale(code as keyof typeof langs)}
               key={lang.key}
               className="flex-1 flex gap-2 items-center rounded-md px-2 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
@@ -71,11 +49,10 @@ export const LanguagePicker = (props: LanguagePickerProps) => {
           ))}
         </Menu.Items>
       </Menu>
-
       <div className="flex gap-2 md:hidden">
         {Object.entries(langs).map(([code, lang]) => (
           <button
-            onClick={() => handleChangeLocale(code as "en" | "ro")}
+            onClick={() => changeLocale(code as keyof typeof langs)}
             key={lang.key}
             className={`flex-1 text-center md:text-left flex gap-2 items-center justify-center rounded-md px-2 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white ${
               currentLocale === code ? "bg-gray-700" : ""
@@ -87,5 +64,5 @@ export const LanguagePicker = (props: LanguagePickerProps) => {
         ))}
       </div>
     </>
-  );
-};
+  )
+}
