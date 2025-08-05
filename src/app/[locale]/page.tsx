@@ -78,6 +78,9 @@ const Page = async () => {
 	  <div className="flex flex-col gap-4 justify-center items-center">
           <span className="text-4xl font-bold">{t("title")}</span>
           <span className="text-2xl font-medium">{t("subtitle")}</span>
+          <span className="text-lg font-semibold text-gray-700">
+            {currentLocale === "ro" ? "de Dan Cordoș și Radiana Cordoș" : "by Dan Cordos and Radiana Cordos"}
+          </span>
           <Link
             href="/read-book"
             className="text-2xl rounded-2xl p-5 border-2 border-slate-500 bg-slate-300 hover:bg-slate-200"
