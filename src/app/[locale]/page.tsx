@@ -88,7 +88,7 @@ const Page = async () => {
           {t("read")}
         </Link>
         <a
-          href={currentLocale === "ro" ? "/DownloadRomanian/Facerea.pdf" : "/DownloadEnglish/TheCreation.pdf"}
+          href={currentLocale === "ro" ? "/downloadromanian/facerea.pdf" : "/downloadenglish/creation.pdf"}
           download
           className="text-blue-600 underline text-lg hover:text-blue-800 mt-2"
         >
