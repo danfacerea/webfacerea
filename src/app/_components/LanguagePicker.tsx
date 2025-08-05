@@ -3,6 +3,7 @@
 
 import { useChangeLocale, useCurrentLocale, useScopedI18n } from "@/locales/client"
 import { Menu } from "@headlessui/react"
+import { useRouter, usePathname } from "next/navigation"
 
 const langs = {
   en: {
@@ -21,9 +22,22 @@ interface LanguagePickerProps {
 }
 
 export const LanguagePicker = (props: LanguagePickerProps) => {
-  const currentLocale = useCurrentLocale()
-  const changeLocale = useChangeLocale()
-  const t = useScopedI18n("Navbar")
+  const currentLocale = useCurrentLocale();
+  const t = useScopedI18n("Navbar");
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Extrage calea fără prefixul de limbă
+  const getPathWithoutLocale = () => {
+    const parts = pathname.split("/");
+    // parts[0] este "", parts[1] este locale ("en" sau "ro")
+    return "/" + parts.slice(2).join("/");
+  };
+
+  const handleChangeLocale = (locale: "en" | "ro") => {
+    const newPath = `/${locale}${getPathWithoutLocale()}`;
+    router.push(newPath);
+  };
 
   return (
     <>
@@ -39,7 +53,7 @@ export const LanguagePicker = (props: LanguagePickerProps) => {
           {Object.entries(langs).map(([code, lang]) => (
             <Menu.Item
               as="button"
-              onClick={() => changeLocale(code as keyof typeof langs)}
+              onClick={() => handleChangeLocale(code as "en" | "ro")}
               key={lang.key}
               className="flex-1 flex gap-2 items-center rounded-md px-2 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
@@ -52,7 +66,7 @@ export const LanguagePicker = (props: LanguagePickerProps) => {
       <div className="flex gap-2 md:hidden">
         {Object.entries(langs).map(([code, lang]) => (
           <button
-            onClick={() => changeLocale(code as keyof typeof langs)}
+            onClick={() => handleChangeLocale(code as "en" | "ro")}
             key={lang.key}
             className={`flex-1 text-center md:text-left flex gap-2 items-center justify-center rounded-md px-2 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white ${
               currentLocale === code ? "bg-gray-700" : ""
@@ -64,5 +78,5 @@ export const LanguagePicker = (props: LanguagePickerProps) => {
         ))}
       </div>
     </>
-  )
-}
+  );
+};
