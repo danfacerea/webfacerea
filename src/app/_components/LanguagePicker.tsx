@@ -28,10 +28,15 @@ export const LanguagePicker = (props: LanguagePickerProps) => {
   const pathname = usePathname();
 
   const handleChangeLocale = (locale: "en" | "ro") => {
-    const currentPath = pathname || "/";
-    const pathSegments = currentPath.split("/").filter(Boolean); // elimină golurile
+    // Salvează preferința utilizatorului
+    if (typeof window !== "undefined") {
+      localStorage.setItem("langSet", "true");
+    }
 
-    // Înlocuiește limba actuală cu cea nouă sau adaugă dacă lipsește
+    const currentPath = pathname || "/";
+    const pathSegments = currentPath.split("/").filter(Boolean);
+
+    // Înlocuiește prefixul de limbă sau adaugă-l
     if (pathSegments[0] === "en" || pathSegments[0] === "ro") {
       pathSegments[0] = locale;
     } else {
@@ -39,8 +44,7 @@ export const LanguagePicker = (props: LanguagePickerProps) => {
     }
 
     const newPath = "/" + pathSegments.join("/");
-    //router.push(newPath);
-	window.location.assign(newPath);
+    window.location.assign(newPath); // forțează refresh complet pentru a schimba contextul de limbă
   };
 
   return (
