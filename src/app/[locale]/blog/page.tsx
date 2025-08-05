@@ -3,6 +3,9 @@ import configPromise from "@payload-config"
 import { getPayload } from "payload"
 import React from "react"
 import { Post } from "./_components/Post"
+export function generateStaticParams() {
+  return [{ locale: "ro" }, { locale: "en" }];
+}
 
 
 const Blog = async () => {
