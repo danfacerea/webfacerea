@@ -39,7 +39,8 @@ export const LanguagePicker = (props: LanguagePickerProps) => {
     }
 
     const newPath = "/" + pathSegments.join("/");
-    router.push(newPath);
+    //router.push(newPath);
+	window.location.assign(newPath);
   };
 
   return (
