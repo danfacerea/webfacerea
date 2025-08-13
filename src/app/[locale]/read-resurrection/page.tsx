@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Locale } from "@/i18n";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: { params: { locale: Locale } }): Promise<Metadata> {

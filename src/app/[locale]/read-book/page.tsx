@@ -6,6 +6,8 @@ import { useCurrentLocale, useScopedI18n } from "@/locales/client"
 import { useCallback, useEffect, useRef, useState } from "react"
 import Head from 'next/head';
 
+export const dynamic = "force-dynamic";
+
 const ReadBookPage = () => {
 	const t = useScopedI18n("ReadBook")
 	const currentLocale = useCurrentLocale()

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "THE RESURRECTION OF THE DEAD – Read online",
   description: "Read online the book “THE RESURRECTION OF THE DEAD IN A NEW CREATION”.",
