@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { Metadata } from "next";
 import { getCurrentLocale, getScopedI18n } from "@/locales/server";
 import Link from "next/link";
@@ -52,6 +51,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+/* eslint-disable @next/next/no-img-element */
 const Page = async () => {
   const currentLocale = getCurrentLocale();
   const t = await getScopedI18n("Home");
@@ -63,43 +63,41 @@ const Page = async () => {
           alt="Banner"
           className="w-full h-auto"
           src={currentLocale === "en" ? "/banner_en.jpg" : "/banner_ro.jpg"}
-        />
+		  />
+	  
       </div>
-
-      {/* Prima carte: CREAȚIA */}
-      <div className="w-full px-8 md:px-4 py-6 bg-gray-300 border-y-2 border-gray-400 flex flex-col md:flex-row place-content-evenly gap-4">
-        <div className="flex justify-center">
+      <div className="w-full px-8 md:px-4 py-6 bg-gray-200 border-y-2 border-gray-400 flex flex-col md:flex-row place-content-evenly gap-4">
+        <div className="flex justify-start">
           <img
             alt="book"
             className="h-full max-h-96 w-auto"
-            src={`https://facerea.ro/img${currentLocale}/Coperta.jpg`}
+            //src={`https://facerea.ro/img${currentLocale}/Coperta.jpg?v=dev1`}
+            src={currentLocale === "en" ? "/CopertaCreatia_en.jpg" : "/CopertaCreatia_ro.jpg"}
           />
+	  
         </div>
-        <div className="flex flex-col gap-4 justify-center items-center">
+	  <div className="flex flex-col gap-4 justify-center items-center">
           <span className="text-4xl font-bold">{t("title")}</span>
           <span className="text-2xl font-medium">{t("subtitle")}</span>
           <span className="text-lg font-semibold text-gray-700">
-            {currentLocale === "ro"
-              ? "de Dan Cordoș și Radiana Cordoș"
-              : "by Dan Cordos and Radiana Cordos"}
+            {currentLocale === "ro" ? "de Dan Cordoș și Radiana Cordoș" : "by Dan Cordos and Radiana Cordos"}
           </span>
           <Link
             href="/read-book"
             className="text-2xl rounded-2xl p-5 border-2 border-slate-500 bg-slate-300 hover:bg-slate-200"
           >
-            {t("read")}
-          </Link>
-          <a
-            href={currentLocale === "ro" ? "/download/facerea.pdf" : "/download/creation.pdf"}
-            download
-            className="text-blue-600 underline text-lg hover:text-blue-800 mt-2"
-          >
-            {t("download")}
-          </a>
+          {t("read")}
+        </Link>
+        <a
+          href={currentLocale === "ro" ? "/download/facerea.pdf" : "/download/creation.pdf"}
+          download
+          className="text-blue-600 underline text-lg hover:text-blue-800 mt-2"
+        >
+          {t("download")}
+        </a>
         </div>
       </div>
-
-      {/* A doua carte: ÎNVIEREA MORȚILOR */}
+	  {/* A doua carte: ÎNVIEREA MORȚILOR */}
       <div className="w-full px-8 md:px-4 py-6 bg-gray-200 border-y-2 border-gray-400 flex flex-col md:flex-row place-content-evenly gap-4">
         <div className="flex justify-center">
           <img
