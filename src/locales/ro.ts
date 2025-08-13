@@ -1,8 +1,8 @@
 export default {
 	Home: {
-		title: "CREAȚIA",
+		title: "CREAȚIA, DE LA GENEZA LA APOCALIPSA?",
 		subtitle: "DE LA GENEZA LA APOCALIPSA",
-		read: "Citește cartea acum",
+		read: "Citește cartea",
 		download: "Descarcă PDF",
 	},
 	Navbar: {

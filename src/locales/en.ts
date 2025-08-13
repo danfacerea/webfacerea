@@ -1,8 +1,8 @@
 export default {
 	Home: {
-		title: "THE CREATION",
+		title: "THE CREATION, FROM GENESIS TO REVELATION?",
 		subtitle: "FROM GENESIS TO REVELATION",
-		read: "Read the book now",
+		read: "Read book",
 		download: "Download PDF",
 	},
 	Navbar: {
