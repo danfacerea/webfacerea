@@ -18,13 +18,13 @@ export default function ReadResurrectionEnPage() {
   const file = "/download/resurrection.pdf";
 
   // Varianta pe CDN (merge imediat, necesită permisiune CSP pentru unpkg.com)
-  const viewer = `https://unpkg.com/pdfjs-dist@3.11.174/web/viewer.html?file=${encodeURIComponent(
-    file
-  )}#zoom=page-fit`;
+  //const viewer = `https://unpkg.com/pdfjs-dist@3.11.174/web/viewer.html?file=${encodeURIComponent(
+  //  file
+  //)}#zoom=page-fit`;
 
   // Dacă vrei local: instalează pdfjs-dist și copiază /web și /build în /public/pdfjs
   // apoi comentează linia de mai sus și decomentează aceasta:
-  // const viewer = `/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}#zoom=page-fit`;
+   const viewer = `/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}#zoom=page-fit`;
 
   return (
     <div className="flex flex-col h-[100dvh]">
